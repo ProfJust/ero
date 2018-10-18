@@ -3,15 +3,15 @@ Aktueller Code zum Modul Autonome Robotik im Master - Maschinenbau, Schwerpunkt 
 
 Anwendung:
 
-$ cd /catkin_ws/src/
+  $ cd /catkin_ws/src/
 
-$ git clone https://github.com/ProfJust/aro
+  $ git clone https://github.com/ProfJust/aro
 
-$ cd ..
+  $ cd ..
 
-$ catkin_make
+  $ catkin_make
 
 
 jetzt kann man das gewünschte Launch-File starten, z.B. 
 
-$ roslaunch aro myGmapping.launch
+  $ roslaunch aro myGmapping.launch
