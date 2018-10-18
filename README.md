@@ -3,8 +3,11 @@ Aktueller Code zum Modul Autonome Robotik im Master - Maschinenbau, Schwerpunkt 
 
 Anwendung:
 $ cd /catkin_ws/src/
-$ sudo git clone https://github.com/ProfJust/ARO
+
+$ git clone https://github.com/ProfJust/ARO
+
 $ cd ..
+
 $ catkin_make
 
 jetzt das gewünschte Launch-File starten, z.B. 
