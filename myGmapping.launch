@@ -8,6 +8,8 @@
   <rosparam  param="xmin"> -10 </rosparam>
   <rosparam  param="ymax">  10 </rosparam>
   <rosparam  param="ymin"> -10 </rosparam>
+  <rosparam  param="angularUpdate"> 0.1 </rosparam>
+  <rosparam  param="linearUpdate"> 0.1 </rosparam>
   <remap from="/scan" to="/summit_xl_a/front_laser/scan" />
   <remap from="/odom" to="/summit_xl_a/robotnik_base_control/odom" />
  </node>
