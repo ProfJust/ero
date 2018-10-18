@@ -10,4 +10,7 @@ $ cd ..
 
 $ catkin_make
 
-jetzt das gewünschte Launch-File starten, z.B. 
+
+jetzt kann man das gewünschte Launch-File starten, z.B. 
+
+$ roslaunch aro myGmapping.launch
