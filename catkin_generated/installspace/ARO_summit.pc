@@ -1,8 +1,0 @@
-prefix=/home/oj/catkin_ws/install
-
-Name: ARO_summit
-Description: Description of ARO_summit
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/oj/catkin_ws/install/lib 
-Requires: 
