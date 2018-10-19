@@ -1,0 +1,13 @@
+<launch>
+ <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+  <rosparam>
+    odom_frame: summit_xl_odom
+    base_frame: summit_xl_base_link
+  </rosparam>
+  <rosparam  param="angularUpdate"> 0.05 </rosparam>
+  <rosparam  param="linearUpdate"> 0.2 </rosparam>
+  <remap from="/scan" to="/summit_xl/front_laser/scan" />
+  <remap from="/odom" to="/summit_xl/robotnik_base_control/odom" />
+ </node>
+</launch>
+
