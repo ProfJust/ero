@@ -1,23 +1,20 @@
-##So geht's mit dem Action Server in der shell
-##
-##rostopic pub --once /summit_xl_a/move_base/goal move_base_msgs/MoveBaseActionGoal '{header: {frame_id: 'summit_xl_a_map'}, goal: {target_pose: {header: {frame_id: 'summit_xl_a_map'}, pose: {position: {x: 7.9, y: -5.4, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.01, w: 1.0}}}}}'
-##
-## gelegntlich local costmap aufraeumen mit
-## rosservice call /summit_xl_a/move_base/clear_costmaps
 
 #patrol.py
-# Version vom 2.11.2018 by OJ
+#-----------------------------------------------------------------
+# Version vom 23.11.2018 
+# by OJ fuer robotik.bocholt@w-hs.de
 # Ursprung: Buch von Quigley, "Prog. Robots with ROS", S161
+# https://github.com/osrf/rosbook/tree/master/code/navigation/src
 # Laesst den Robot nacheinander die Wegpunkte abfahren
 # Notwendig: Funktionierender ROS nav stack
-#-------------------------------------------------------------------------------------
+#------------------------------------------------------------------
 #!/usr/bin/env python
 import rospy
 import actionlib
 from move_base_msgs.msg import MoveBaseAction,MoveBaseActionGoal,MoveBaseGoal
 
 # Die Wegpunkte Ort (x,y,z) + Orientierung (x,y,z,w)
-# mit rostopic echo /clicked_point werden die in RVIZ 
+# Tipp: mit rostopic echo /clicked_point werden die in RVIZ 
 # angeklickten Punkte (Publish Point) angezeigt 
 waypoints = [ 
     [( 11.8, -5.8, 0.0), (0.0, 0.0, 0.0, 1.0)], 
@@ -29,7 +26,7 @@ waypoints = [
     [( 0.0,   0.0, 0.0), (0.0, 0.0, 0.1, 1.0)],
 ]
 
-#Helper Function to turn waypoint => MoveBaseGoal
+# Helper Function to turn waypoint => MoveBaseGoal
 def set_goal_pose(pose):
     goal_pose = MoveBaseGoal()  #lokales Objekt instanzieren
     #lokales Objekt mit Werten fuellen
@@ -48,13 +45,14 @@ if __name__ == '__main__':
     print('Starting patrol.py')
     rospy.init_node('patrol')
     
-    #Create a simple action client
+    # Create a simple action client
     # Liste der vorhandenen action server mit
-    #rostopic list | grep -o -P '^.*(?=/feedback)'
-    client = actionlib.SimpleActionClient('summit_xl_a/move_base', MoveBaseAction)
+    # rostopic list | grep -o -P '^.*(?=/feedback)'
+	    client = actionlib.SimpleActionClient('summit_xl_a/move_base', MoveBaseAction)
     print('Waiting for Action Server')
     client.wait_for_server()
-    wayPointNr = 0
+    
+	wayPointNr = 0
     while not rospy.is_shutdown():
         for pose in waypoints:
             next_goal_pose = set_goal_pose(pose)  
@@ -66,3 +64,12 @@ if __name__ == '__main__':
         print('Runde zu Ende ')
         wayPointNr = 0
 
+##So geht's mit dem Action Server in der shell
+##
+##rostopic pub --once /summit_xl_a/move_base/goal move_base_msgs/MoveBaseActionGoal '{header: {frame_id: 'summit_xl_a_map'}, goal: {target_pose: {header: {frame_id: 'summit_xl_a_map'}, pose: {position: {x: 7.9, y: -5.4, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.01, w: 1.0}}}}}'
+##
+## gelegntlich local costmap aufraeumen mit
+## rosservice call /summit_xl_a/move_base/clear_costmaps
+##
+## home/oj/catkin_ws/src/summit_xl_common/summit_xl_localization/maps/willow_garage.pgm
+## ggf besser malen
