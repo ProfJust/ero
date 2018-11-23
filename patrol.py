@@ -1,4 +1,3 @@
-
 #patrol.py
 #-----------------------------------------------------------------
 # Version vom 23.11.2018 
@@ -11,7 +10,7 @@
 #!/usr/bin/env python
 import rospy
 import actionlib
-from move_base_msgs.msg import MoveBaseAction,MoveBaseActionGoal,MoveBaseGoal
+from move_base_msgs.msg import MoveBaseAction,MoveBaseGoal
 
 # Die Wegpunkte Ort (x,y,z) + Orientierung (x,y,z,w)
 # Tipp: mit rostopic echo /clicked_point werden die in RVIZ 
@@ -48,11 +47,11 @@ if __name__ == '__main__':
     # Create a simple action client
     # Liste der vorhandenen action server mit
     # rostopic list | grep -o -P '^.*(?=/feedback)'
-	    client = actionlib.SimpleActionClient('summit_xl_a/move_base', MoveBaseAction)
+    client = actionlib.SimpleActionClient('summit_xl_a/move_base', MoveBaseAction)
     print('Waiting for Action Server')
     client.wait_for_server()
+    wayPointNr = 0
     
-	wayPointNr = 0
     while not rospy.is_shutdown():
         for pose in waypoints:
             next_goal_pose = set_goal_pose(pose)  
@@ -60,7 +59,9 @@ if __name__ == '__main__':
             print(str(next_goal_pose.target_pose.pose))
             wayPointNr = wayPointNr+1
             client.send_goal(next_goal_pose)
+            #print(str(client.get_Feedback())) geht nicht
             client.wait_for_result()
+            
         print('Runde zu Ende ')
         wayPointNr = 0
 
