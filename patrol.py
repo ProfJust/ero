@@ -60,7 +60,7 @@ if __name__ == '__main__':
             wayPointNr = wayPointNr+1
             client.send_goal(next_goal_pose)
             #print(str(client.get_Feedback())) geht nicht
-            client.wait_for_result()
+            client.wait_for_result(rospy.Duration.from_sec(300.0)) #max Wartezeitin sec
             
         print('Runde zu Ende ')
         wayPointNr = 0
