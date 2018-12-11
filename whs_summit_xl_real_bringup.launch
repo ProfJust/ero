@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- summit_xl_whs_bringup.launch  Stand 5.12.2018 18:10 
+	<!-- whs_summit_xl_real_bringup.launch Stand 5.12.2018 18:10 
 	     
 	Karte  OK, AMCL auch OK, aber Robot fährt nach wie vor nicht zum goal
 	auch nicht mit 
