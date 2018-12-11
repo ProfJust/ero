@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- summit_xl_whs_bringup.launch  Stand 5.12.2018 18:10 
+	     
+	Karte  OK, AMCL auch OK, aber Robot fährt nach wie vor nicht zum goal
+	auch nicht mit 
+
+rostopic pub --once /summit_xl/move_base/goal move_base_msgs/MoveBaseActionGoal '{header: {frame_id: 'summit_xl_map'}, goal: {target_pose: {header: {frame_id: 'summit_xl_map'}, pose: {position: {x: -7.0, y: 11.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.01, w: 1.0}}}}}'
+
+rostopic list | grep -o -P '^.*(?=/feedback)'  => /move_base
+
+rostopic pub --once /move_base/goal move_base_msgs/MoveBaseActionGoal '{header: {frame_id: 'summit_xl_map'}, goal: {target_pose: {header: {frame_id: 'summit_xl_map'}, pose: {position: {x: -7.0, y: 11.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.01, w: 1.0}}}}}'
+
+rostopic pub --once /move_base_simple/goal move_base_msgs/MoveBaseActionGoal '{header: {frame_id: 'summit_xl_map'}, goal: {target_pose: {header: {frame_id: 'summit_xl_map'}, pose: {position: {x: -7.0, y: 11.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.01, w: 1.0}}}}}'
+
+nur beim  move_base_simple/goal sieht man in RVIZ den Pfad zum Goal 
+dafür kommt rote Fehlermeldung das MoveBaseActionGoal gefordert wird und geometry_msgs/PoseStamped geliefert 
+
+
+
+-->
+    <!-- Startet den realen Summit_Xl -->
+    	<arg name="id_robot" default="summit_xl"/>
+	<arg name="prefix" default="summit_xl_"/>
+	<arg name="x_init_pose" default="0"/>
+	<arg name="y_init_pose" default="0"/>
+	<arg name="z_init_pose" default="0"/>
+	<arg name="xacro_robot" default="summit_xl_std.urdf.xacro"/>
+	<arg name="launch_robot_localization" default="true"/>
+	<arg name="launch_amcl_and_mapserver" default="true"/>
+	<arg name="launch_gmapping" default="false"/>
+	<arg name="launch_move_base" default="true"/>
+	<arg name="map_file" default="whs/whs_map.yaml"/> <!--~/catkin_ws/src/summit_xl_common/summit_xl_localization/-->
+	<arg name="robot_localization_mode" default="odom"/><!-- odom, complete (including gps)-->
+	<arg name="ros_planar_move_plugin" default="false"/>
+	
+    
+       
+    <!--summit_xl_localization robot_localization_complete.launch -->
+    <!--summit_xl_localization summit_xl_control.launch -->
+    	<!-- start summit_xl_control nodes -->  
+<!-- NUR FÜR GAZEBO ???launch/summit_xl_control.launch"> 
+		<arg name="prefix" value="$(arg prefix)"/>
+	  </include>
+-->
+
+    <!-- robot_localization nodes, publishes transformation world->odom->base_footprint -->
+	<include if="$(arg launch_robot_localization)" file="$(find summit_xl_localization)/launch/robot_localization_$(arg robot_localization_mode).launch">
+		<arg name="prefix" value="$(arg prefix)"/>
+	</include>
+
+    	<!-- use static_transform_publisher to define map->odom transform    -->
+    	<!-- only use if you aren´t using a localization algorithm like amcl -->
+    	<!--node if="$(arg fake_map_transform)" pkg="tf" type="static_transform_publisher" name="static_map_broadcaster" args="0 0 0 0 0 0 map $(arg namespace)odom 100" /-->
+
+
+	<!--summit_xl_localization amcl.launch --> 
+	<!--summit_xl_localization map_server.launch -->   
+	<!-- amcl and map server base-->
+		<include if="$(arg launch_amcl_and_mapserver)" file="$(find summit_xl_localization)/launch/map_server.launch">
+			<arg name="prefix" value="$(arg prefix)"/>
+			<arg name="map_file" value="$(arg map_file)"/>
+		</include>
+		<include if="$(arg launch_amcl_and_mapserver)" file="$(find summit_xl_localization)/launch/amcl.launch">
+			<arg name="prefix" value="$(arg prefix)"/>
+			<arg if="$(arg ros_planar_move_plugin)" name="odom_model_type" value="omni"/>
+			<arg unless="$(arg ros_planar_move_plugin)" name="odom_model_type" value="diff"/>
+			<arg name="x_init_pose" value="$(arg x_init_pose)"/>
+			<arg name="y_init_pose" value="$(arg y_init_pose)"/>
+			<arg name="z_init_pose" value="$(arg z_init_pose)"/>
+		</include>
+
+
+	<!--summit_xl_navigation move_base.launch -->
+   	<!-- move base -->
+		<include if="$(arg launch_move_base)" file="$(find summit_xl_navigation)/launch/move_base.launch">
+			<arg name="prefix" value="$(arg prefix)"/>
+			<arg name="omni" value="$(arg ros_planar_move_plugin)"/>
+		</include>
+
+</launch>
