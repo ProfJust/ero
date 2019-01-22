@@ -1,9 +1,13 @@
 # whs_patrol.py
 #-----------------------------------------------------------------
 # Version vom 17.01.2019 mit Wegpunkten um die Hochschule
+#
+# 22.1.2019: getestet mit neuen Wegpunkten
+# zwichwen  Feuerwehrecke und BHKW gibt es noch Probleme
+# ... fährt in den Teich
+#
 # by OJ fuer robotik.bocholt@w-hs.de
 #
-# yet to be tested !!!!!!!
 #
 # Ursprung: Buch von Quigley, "Prog. Robots with ROS", S161
 # https://github.com/osrf/rosbook/tree/master/code/navigation/src
