@@ -1,5 +1,5 @@
 # ERO
-Aktueller Code zum Modul Autonome Robotik im Master - Maschinenbau, Schwerpunkt Robotik an der Westfälischen Hochschule - Campus Bocholt 
+Aktueller Code zum Wahl-Modul (Bachelor) "Einführung in die Roboterprogrammierung mit ROS und Python", an der Westfälischen Hochschule - Campus Bocholt 
 
 Anwendung:
 
