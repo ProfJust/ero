@@ -1,5 +1,5 @@
 #!/bin/bash
-# My first script
+# script to setup Summit_XL-Workspace
 
 echo -e "\033[34m ---------- ERO SS20 - Workspace einrichten  ------------ \033[0m "
 
