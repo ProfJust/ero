@@ -35,8 +35,8 @@ sudo apt-get install ros-melodic-twist-mux -y
 sudo apt-get install ros-melodic-gazebo-ros-control -y
 sudo apt-get install ros-melodic-twist-mux -y
 
+echo "Aktualisiere alle Abhaengigkeiten der ROS-Pakete"
+rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 
 echo -e "\033[31m to do:   $ cd ~/catkin_ws/  ...   catkin_make \033[0m"
-
-echo -e "\033[31m to do: rosdep install --from-paths src --ignore-src -r -y \033[0m"
