@@ -35,7 +35,11 @@ sudo apt-get install ros-melodic-twist-mux -y
 sudo apt-get install ros-melodic-gazebo-ros-control -y
 sudo apt-get install ros-melodic-twist-mux -y
 
-echo "Aktualisiere alle Abhaengigkeiten der ROS-Pakete"
+
+sudo apt-get install libsdl-image1.2-dev and
+sudo apt-get install libsdl-dev
+
+echo -e "\033[31m Aktualisiere alle Abhaengigkeiten der ROS-Pakete \033[0m"
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 
