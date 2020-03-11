@@ -8,12 +8,10 @@ project(ero)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  ros-melodic-gazebo-ros-control
-  ros-melodic-gmapping
-  ros-melodic-navigation
-  ros-melodic-robot-localization
-  ros-melodic-teb-local-planner
-  ros-melodic-twist-mux
+  gazebo_ros_control
+  gmapping
+  robot_localization
+  twist_mux
   roscpp
   rospy
 )
