@@ -1,0 +1,79 @@
+
+https://github.com/RobotnikAutomation/summit_xl_sim/issues/25
+
+When I start the Gazebo Simulation (like supposed in the ReadMe-File) using
+
+$ roslaunch summit_xl_sim_bringup summit_xl_complete.launch move_base_robot_a:=true amcl_and_mapserver_a:=true localization_robot_a:=true
+
+the LaserScanners (front and rear) just show -inf. So the navigation does not work.
+
+$ rostopic echo /robot/front_laser/scan
+
+header: 
+  seq: 16281
+  stamp: 
+    secs: 316
+    nsecs: 328000000
+  frame_id: "robot_front_laser_link"
+angle_min: -2.35619997978
+angle_max: 2.35619997978
+angle_increment: 0.00436333334073
+time_increment: 0.0
+scan_time: 0.0
+range_min: 0.0599999986589
+range_max: 10.0
+ranges: [-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, 
+
+The Gazebo-Summit is not moved and should see the walls within 4..5m.
+Nothing is edited in the clone of this repository using ROS-melodic with Gazebo 9.
+
+Do I just have to reconfigure something?
+Is this a Gazebo-Problem?
+Do I have to use ROS-Kinetic?
+Any help would be appreciated.
+
+
+
+The GPU seems to be the problem:
+Workaround: Change the Gazebo-plugin from gpu to normal
+
+=> change file catkin_ws/src/robotnik_sensors/urdf/hokuyo_ust10lx.urdf.xacro
+
+Line 53  	<sensor type="ray" name="${prefix}_sensor">
+
+Line 80:    <plugin name="${prefix}_controller" filename="libgazebo_ros_laser.so">
+
+
+
+
+
+
+
+
+
+
+Hi,
+
+This is probably due to the fact that the default gazebo laser plugin we are using is "libgazebo_ros_gpu_laser.so". If you computer does not have a gpu the laser does not work properly and publishes "inf".
+
+The laser used by default is the sick_s300
+
+We'll add an argument to let choose whether using or not "gpu".
+
+In the meantime you can replace it in the sensor urdf:
+
+    Replace <sensor type="gpu_ray" ... by "ray"
+    Replace by "libgazebo_ros_laser.so"
+
+Regards,
+
+
+
+
+
+
+
+This has solved my problem. Probably I should buy a GPU.
+Thank you very much.
+
+
