@@ -21,3 +21,4 @@ jetzt kann man das gewünschte Launch-File starten, z.B.
 
      $ roslaunch summit_xl_sim_bringup summit_xl_complete.launch move_base_robot_a:=true amcl_and_mapserver_a:=true localization_robot_a:=true id_robot_a:=summit_xl
 
+Achtung: Im Ordner changed_summit_files sind die Änderungen zu den originalen Repositorien von Robotnik etc. zu finden. Bei Funktionsproblemen am besten erst mal hier reinschauen.
