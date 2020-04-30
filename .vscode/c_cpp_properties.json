@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/robomaster/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/amcl/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/base_local_planner/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/carrot_planner/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/clear_costmap_recovery/include/**",
+        "/home/robomaster/catkin_ws/src/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/costmap_2d/include/**",
+        "/home/robomaster/catkin_ws/src/costmap_prohibition_layer/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/dwa_local_planner/include/**",
+        "/home/robomaster/catkin_ws/src/geographic_info/geodesy/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/global_planner/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/map_server/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/move_base/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/move_slow_and_clear/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/nav_core/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/navfn/include/**",
+        "/home/robomaster/catkin_ws/src/robot_localization/include/**",
+        "/home/robomaster/catkin_ws/src/rosserial/rosserial_server/include/**",
+        "/home/robomaster/catkin_ws/src/rosserial/rosserial_test/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/rotate_recovery/include/**",
+        "/home/robomaster/catkin_ws/src/unique_identifier/unique_id/include/**",
+        "/home/robomaster/catkin_ws/src/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/robomaster/catkin_ws/src/Universal_Robots_ROS_Driver/ur_controllers/include/**",
+        "/home/robomaster/catkin_ws/src/fmauch_universal_robot/ur_kinematics/include/**",
+        "/home/robomaster/catkin_ws/src/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/home/robomaster/catkin_ws/src/navigation/voxel_grid/include/**",
+        "/home/robomaster/catkin_ws/src/youbot_driver/include/**",
+        "/home/robomaster/catkin_ws/src/youbot_driver_ros_interface/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

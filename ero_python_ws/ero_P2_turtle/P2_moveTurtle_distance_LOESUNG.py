@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # --- moveTurtle_distance.py ------
-# Version vom 11.10.2019 by OJ
+# Version vom 30.4.2020 by OJ
 # ohne OOP und Klasse
 # ----------------------------------
 # Starten
