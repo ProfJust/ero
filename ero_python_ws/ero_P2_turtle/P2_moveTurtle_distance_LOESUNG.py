@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # --- moveTurtle_distance.py ------
 # Version vom 30.4.2020 by OJ
-# ohne OOP und Klasse test
+# ohne OOP und Klasse 
 # ----------------------------------
 # Starten
 # $1 roscore
