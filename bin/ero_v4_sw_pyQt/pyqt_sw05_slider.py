@@ -1,12 +1,12 @@
-# -------------------------------------------------------------------------
+
 # pyqt_sw05_slider.py
 # Beispiel fuer Slider
 # https://pythonprogramminglanguage.com/pyqt5-sliders/
 # -------------------------------------------------------------------------
 import sys
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox,
-                             QMenu, QPushButton, QRadioButton, QVBoxLayout, QWidget, QSlider)
+from PyQt5.QtWidgets import (QApplication, QGridLayout, QGroupBox,
+                             QRadioButton, QVBoxLayout, QWidget, QSlider)
 
 
 class Window(QWidget):
@@ -43,6 +43,7 @@ class Window(QWidget):
         groupBox.setLayout(vbox)
 
         return groupBox
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

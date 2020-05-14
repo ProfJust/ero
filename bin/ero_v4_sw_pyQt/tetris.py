@@ -1,49 +1,46 @@
-#!/usr/bin/python3
+# -------------------------------
+# !/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 """
-ZetCode PyQt5 tutorial 
+ZetCode PyQt5 tutorial
 
 This is a Tetris game clone.
 
 Author: Jan Bodnar
-Website: zetcode.com 
+Website: zetcode.com
 Last edited: August 2017
 """
 
 from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication
 from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
-from PyQt5.QtGui import QPainter, QColor 
-import sys, random
+from PyQt5.QtGui import QPainter, QColor
+import sys
+import random
+
 
 class Tetris(QMainWindow):
-    
+
     def __init__(self):
         super().__init__()
-        
         self.initUI()
-        
-        
-    def initUI(self):    
+
+    def initUI(self):
         '''initiates application UI'''
 
         self.tboard = Board(self)
         self.setCentralWidget(self.tboard)
 
-        self.statusbar = self.statusBar()        
+        self.statusbar = self.statusBar()
         self.tboard.msg2Statusbar[str].connect(self.statusbar.showMessage)
-        
         self.tboard.start()
-        
         self.resize(180, 380)
         self.center()
-        self.setWindowTitle('Tetris')        
+        self.setWindowTitle('Tetris')
         self.show()
-        
 
-    def center(self):
-        '''centers the window on the screen'''
-        
+   def center(self):
+        '''centers the window on the screen'''        
         screen = QDesktopWidget().screenGeometry()
         size = self.geometry()
         self.move((screen.width()-size.width())/2, 
