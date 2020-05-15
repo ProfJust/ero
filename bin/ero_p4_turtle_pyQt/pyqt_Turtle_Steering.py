@@ -4,14 +4,12 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QWidget, QLCDNumber, QSlider,
-                            QPushButton, QVBoxLayout, QHBoxLayout,
-							QApplication, QLabel)
+ QPushButton, QVBoxLayout, QHBoxLayout, QApplication, QLabel)
 
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 from math import pow, atan2, sqrt
-
 
 class TurtleBotClass:
 	# globale Variablen	
@@ -101,25 +99,30 @@ class TurtleBotClass:
 		vel_msg.angular.z = 0
 		self.velocity_publisher.publish(vel_msg)
 		#exit()
+	def turtleGo(self, v_x, v_theta):
+		vel_msg = Twist()
+		vel_msg.linear.x = v_x
+		vel_msg.angular.z = v_theta
+		# Publishing our vel_msg
+		self.velocity_publisher.publish(vel_msg)
+		# Publish at the desired rate.
+		self.rate.sleep()
 		
-class TurtleUIClass(QWidget):	
-	def __init__(self): # Konstrukor
+		
+
+class Example(QWidget):	
+	def __init__(self): #Konstrukor
 		#Konstruktor der Elternklasse aufrufen
-		super(TurtleUIClass, self).__init__()      
+		super(Example, self).__init__()      
 		self.initUI()
 				
 	def initUI(self): 
-		#Instanziierung der Widgets    
-		startWert = 5  
-		self.lcd = QLCDNumber(self)
-		self.lcd.display(startWert)
+		#Instanziierung der Widgets       
+		lcd = QLCDNumber(self)
 		self.sld = QSlider(Qt.Horizontal, self)
-		self.sld.setMaximum(11)
-		self.sld.setMinimum(0)
-		self.sld.setValue(startWert)
-		self.pbLess = QPushButton('<')
-		self.pbMore = QPushButton('>')
-		self.pbGo = QPushButton(' Go Turtle ')
+		pbLess = QPushButton('<')
+		pbMore = QPushButton('>')
+		pbGo = QPushButton(' Go Turtle ')
 		self.lblStatus = QLabel('Statuszeile')
 		
 		#BOX-Layout mit Widgets füllen
@@ -132,24 +135,23 @@ class TurtleUIClass(QWidget):
 		hbox = QHBoxLayout()
 		hbox.addWidget(pbLess)
 		hbox.addWidget(pbMore)
-
 		vbox.addLayout(hbox)
 		#4.Reihe
 		vbox.addWidget(pbGo)
 		#Alle Boxen ins Window setzen        
 		self.setLayout(vbox)           
 		
-		# Signal und Slot verbinden
+		#Signal und Slot verbinden
 		self.sld.valueChanged.connect(lcd.display)
 		self.sld.valueChanged.connect(lcd.display)
 
 		pbLess.clicked.connect(self.SlotKlick)
-		pbMore.clicked.connect(self.SlotKlick)		
+		pbMore.clicked.connect(self.SlotKlick)
 		pbGo.clicked.connect(self.SlotGo)
 		
 		#Fenster Konfigurieren
 		self.setGeometry(300, 300, 250, 150)
-		self.setWindowTitle('ERO - PyQt - TurtleSteering')
+		self.setWindowTitle('ROP - PyQt - TurtleSteering')
 		self.show()
 		
 	def SlotKlick(self):
@@ -174,5 +176,5 @@ if __name__ == '__main__':
 	turtle1 = TurtleBotClass()
 	
 	app = QApplication(sys.argv)
-	ex = TurtleUIClass()
+	ex = Example()
 	sys.exit(app.exec_())
