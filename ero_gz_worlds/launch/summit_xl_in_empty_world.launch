@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- arg to config the launch file-->
+	<arg name="launch_rviz" default="false"/>
+	<arg name="gazebo_world" default="$(find gazebo_ros)/launch/empty_world.launch"/>  
+	<arg name="omni_drive" default="false"/>
+	<!-- arguments robot a -->
+	<arg name="launch_robot_a" default="true"/>
+	<arg name="map_file_a" default="willow_garage/willow_garage.yaml"/>
+	<arg name="localization_robot_a" default="false"/>
+	<arg name="gmapping_robot_a" default="false"/>
+	<arg name="move_base_robot_a" default="false"/>
+	<arg name="amcl_and_mapserver_a" default="false"/>
+	<arg name="launch_pad_a" default="false"/>
+
+
+	<include file="$(find summit_xl_gazebo)/launch/summit_xl_gazebo.launch">
+		<!-- general args -->
+		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
+		<arg name="gazebo_world" value="$(arg gazebo_world)"/>
+		<arg name="ros_planar_move_plugin" value="$(arg omni_drive)"/>
+		<!-- robot_a args -->
+		<arg name="launch_robot_a" value="$(arg launch_robot_a)"/>
+		<arg name="map_file_a" value="$(arg map_file_a)"/>
+		<arg name="localization_robot_a" value="$(arg localization_robot_a)"/>
+		<arg name="gmapping_robot_a" value="$(arg gmapping_robot_a)"/>
+		<arg name="move_base_robot_a" value="$(arg move_base_robot_a)"/>
+		<arg name="amcl_and_mapserver_a" value="$(arg amcl_and_mapserver_a)"/>
+		<arg name="launch_pad_a" value="$(arg launch_pad_a)"/>
+	</include>
+
+	<!-- Tastensteuerung in eigener Shell starten -->
+	<node pkg="ero" type="start_teleop.sh" name="teleop_node" output="screen" />
+	<remap from="/cmd_vel" to="/robot/robotnik_base_control/cmd_vel" /> 
+	
+	
+</launch>
