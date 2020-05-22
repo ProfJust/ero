@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>ero_gz_worlds</name>
+  <version>0.8.0</version>
+  <description>Gazebo worlds configurations</description>
+
+  <maintainer email="robotik.bocholt@w-hs.de"> Olaf Just</maintainer>
+ 
+  <license>GPLv3</license>
+
+  <url type="website">https://github.com/ProfJust/ero> -->
+
+  <author "robotik.bocholt@w-hs.de"> Olaf Justr</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>xacro</run_depend>
+
+
+</package>
