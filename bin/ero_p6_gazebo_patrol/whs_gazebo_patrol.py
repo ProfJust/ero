@@ -1,6 +1,6 @@
 # whs_gazebo_patrol.py
 #-----------------------------------------------------------------
-# Version vom 22.05.2020 mit Wegpunkten um die Hochschule
+# Version vom 22.05.2020 mit Wegpunkten 
 # alle summit_xl_a werden auf robot umgestellt
 #
 # by OJ fuer robotik.bocholt@w-hs.de
