@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- OJ 25.5.2020: ero launch-file für Summit_XL in der WHS-Welt-->
+<launch>
+	<!-- added global ROS -Parameter OJ 22.5.20-->
+	<param name="/use_sim_time" value="true"/>	
+
+	<!-- arg to config the launch file-->
+	<arg name="launch_rviz" default="true"/>
+	<arg name="gazebo_world" default="$(find summit_xl_gazebo)/worlds/whs_world.world"/>
+	<!-- World File (und dae -meshes ) kopieren nach => /home/oj/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds -->
+	<!-- User anpassen robolab04 -> oj -->
+	
+	
+	<arg name="omni_drive" default="false"/>
+	<!-- arguments robot a -->
+	<arg name="launch_robot_a" default="true"/>
+	<arg name="map_file_a" default="/whs_world_rviz/whs.yaml"/>
+	<!-- Map File (pgm und yaml) kopieren nach => catkin_ws/src/summit_xl_common/summit_xl_localization/maps/whs_world_rviz-->
+	<arg name="localization_robot_a" default="true"/>
+	<arg name="gmapping_robot_a" default="false"/>
+	<arg name="move_base_robot_a" default="true"/>
+	<arg name="amcl_and_mapserver_a" default="true"/>
+	<arg name="launch_pad_a" default="false"/>
+
+	<include file="$(find summit_xl_gazebo)/launch/summit_xl_gazebo.launch">
+		<!-- general args -->
+		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
+		<arg name="gazebo_world" value="$(arg gazebo_world)"/>
+        <arg name="ros_planar_move_plugin" value="$(arg omni_drive)"/>
+		
+		<!-- robot_a args -->
+		<arg name="launch_robot_a" value="$(arg launch_robot_a)"/>
+		<arg name="map_file_a" value="$(arg map_file_a)"/>
+		<arg name="localization_robot_a" value="$(arg localization_robot_a)"/>
+		<arg name="gmapping_robot_a" value="$(arg gmapping_robot_a)"/>
+		<arg name="move_base_robot_a" value="$(arg move_base_robot_a)"/>
+		<arg name="amcl_and_mapserver_a" value="$(arg amcl_and_mapserver_a)"/>
+		<arg name="launch_pad_a" value="$(arg launch_pad_a)"/>
+		
+	</include>
+
+
+</launch>
