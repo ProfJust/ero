@@ -28,7 +28,8 @@ def callback(data):
 
 
 def start():  # Intializes everything
-    print("Joy to Summit Converter Node ist started - Don't forget to start Joy-Node")
+    print("Joy to Summit Converter Node ist started ")
+    print("  Don't forget to start Joy-Node")
     # publishing to "turtle1/cmd_vel" to control turtle1
     global pub
     pub = rospy.Publisher('/robot/pad_teleop/cmd_vel', Twist, queue_size=10)

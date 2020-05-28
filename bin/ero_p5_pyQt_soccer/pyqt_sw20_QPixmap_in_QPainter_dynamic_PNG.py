@@ -24,7 +24,7 @@ class Ui(QWidget):
         self.timer.start(20)
         self.initUI()
 
-    def initUI(self):         
+    def initUI(self):
         # UI-Fenster Konfigurieren
         self.setGeometry(30, 30, 600, 600)
         self.setWindowTitle('Qt - Painter')
