@@ -36,6 +36,7 @@ sudo apt-get install ros-melodic-gazebo-ros-control -y
 sudo apt-get install ros-melodic-twist-mux -y
 sudo apt-get install ros-melodic-teleop-twist-keyboard -y
 sudo apt-get install ros-melodic-tf2-sensor-msgs -y
+sudo apt-get install ros-melodic-velocity-controllers -Y
 
 sudo apt-get install libsdl-image1.2-dev and
 sudo apt-get install libsdl-dev
