@@ -3,7 +3,7 @@ whs_world_ReadMe.md
 Anleitung für die Gazebo- WHS-Welt, Campus Bocholt 
 
 
-1. Ordner  "whs_world_map"  kopieren nach  catkin_ws/src/summit_xl_common/maps/.. 
+1. Ordner  __whs_world_map__  kopieren nach  __catkin_ws/src/summit_xl_common/maps/..__ 
 
 2. Ordner "whs_world_model" kopieren nach ~/.gazebo/models/.. kopieren
 
