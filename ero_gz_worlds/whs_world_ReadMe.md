@@ -11,7 +11,7 @@ Anleitung für die Gazebo- WHS-Welt, Campus Bocholt
 
 3. File __whs_world.world__  kopieren nach __~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds__
 
-4. ### $ roslaunch ero whs_summit_xl_complete.launch __
+4. ** $ roslaunch ero whs_summit_xl_complete.launch
 
 5. RViz: Fixed Frame auf __robot_map__ konfigurieren
 
