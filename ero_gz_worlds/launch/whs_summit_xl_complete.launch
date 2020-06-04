@@ -6,16 +6,13 @@
 
 	<!-- arg to config the launch file-->
 	<arg name="launch_rviz" default="true"/>
-	<arg name="gazebo_world" default="$(find summit_xl_gazebo)/worlds/whs_world.world"/>
-	<!-- World File (und dae -meshes ) kopieren nach => /home/oj/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds -->
-	<!-- User anpassen robolab04 -> oj -->
-	
+	<arg name="gazebo_world" default="$(find summit_xl_gazebo)/worlds/whs_world.world"/>	
 	
 	<arg name="omni_drive" default="false"/>
 	<!-- arguments robot a -->
 	<arg name="launch_robot_a" default="true"/>
-	<arg name="map_file_a" default="/whs_world_rviz/whs.yaml"/>
-	<!-- Map File (pgm und yaml) kopieren nach => catkin_ws/src/summit_xl_common/summit_xl_localization/maps/whs_world_rviz-->
+	<arg name="map_file_a" default="/whs_world_map/whs.yaml"/>
+	<!-- Map File (pgm und yaml) kopieren nach => catkin_ws/src/summit_xl_common/summit_xl_localization/maps/whs_world_map-->
 	<arg name="localization_robot_a" default="true"/>
 	<arg name="gmapping_robot_a" default="false"/>
 	<arg name="move_base_robot_a" default="true"/>
