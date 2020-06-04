@@ -10,7 +10,7 @@ Jetzt funktioniert es!
 
 3. File __whs_world.world__  kopieren nach __~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds__
 
-4. __$roslaunch ero whs_summit_xl_complete.launch __
+4. __roslaunch ero whs_summit_xl_complete.launch __
 
 5. RViz: Fixed Frame auf __robot_map__ konfigurieren
 
