@@ -5,7 +5,7 @@
 Anleitung zum Start der Summit-Simulation mit dem Campus Bocholt - Model whs_world.world
 ...
 
-1. Ordner  __whs_world_map__  kopieren nach  __catkin_ws/src/summit_xl_common/maps/..__ 
+1. Ordner  __whs_world_map__  kopieren nach  __catkin_ws/src/summit_xl_common/summit_xl_localization/maps/..__ 
 
 2. Ordner __whs_world_model__ kopieren nach __~/.gazebo/models/..__ kopieren (Achtung Verborgene Dateien)
 
