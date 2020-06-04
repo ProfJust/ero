@@ -11,3 +11,5 @@ Anleitung für die Gazebo- WHS-Welt, Campus Bocholt
 
 
 4.) RViz: Fixed Frame auf robot_base_link konfigurieren
+
+5.) Für Gazebo die Modelle (Ordner meshes, File model.config und model.sdf)   nach ~/.gazebo/models/whs_world kopieren
