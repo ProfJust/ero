@@ -2,7 +2,7 @@
 ------------------------------------
 **Jetzt funktioniert es! 4.6.20, 17:10 Uhr**
 
-Anleitung für die Gazebo- WHS-Welt, Campus Bocholt   
+Anleitung zum Start der Summit-Simulation mit dem Campus Bocholt - Model whs_world.world
 ...
 
 1. Ordner  __whs_world_map__  kopieren nach  __catkin_ws/src/summit_xl_common/maps/..__ 
