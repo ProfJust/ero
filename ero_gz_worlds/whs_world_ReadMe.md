@@ -10,4 +10,4 @@ Anleitung für die Gazebo- WHS-Welt, Campus Bocholt
 3.) $ roslaunch ero whs_summit_xl_complete.launch 
 
 
-4.)
+4.) RViz: Fixed Frame auf robot_base_link konfigurieren
