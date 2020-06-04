@@ -1,8 +1,9 @@
-whs_world_ReadMe.md
+### whs_world_ReadMe.md
 ------------------------------------
 Anleitung für die Gazebo- WHS-Welt, Campus Bocholt   
 Jetzt funktioniert es!
 
+...
 
 1. Ordner  __whs_world_map__  kopieren nach  __catkin_ws/src/summit_xl_common/maps/..__ 
 
