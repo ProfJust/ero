@@ -7,7 +7,7 @@ Anleitung für die Gazebo- WHS-Welt, Campus Bocholt
 
 2.) Ordner "whs_world_model" kopieren nach ~/.gazebo/models/.. kopieren
 
-3.) Ordenr "whs_world" kopieren nach ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
+3.) File 'whs_world.world'  kopieren nach ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
 
 4.) $ roslaunch ero whs_summit_xl_complete.launch 
 
