@@ -6,8 +6,8 @@
 # ---------------------------------------
 
 
-def bmi(m, l):
-    bmi = m/(l**2)
+def bmi(kg, m):
+    bmi = kg/(m*m)
     return bmi
 
 
