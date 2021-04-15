@@ -1,7 +1,8 @@
 #!/usr/bin/env python
-# BMI.py
+# bmi2.py
 # ---------------------------------------
 # 22.4.2012 by OJ - bis Zeile 23 gelynted
+# 15.04.2021 by OJ => Python 3
 # ---------------------------------------
 
 
@@ -34,11 +35,12 @@ def bewertung(b, a):
 
 
 def main():
-    gewicht = input("Geben Sie Ihr Gewicht in kg an \n")
-    laenge = input("Geben Sie Ihre Koerpergroesse in m an \n")
-    alter = input("Geben Sie Ihr Alter in Jahren an \n")
+    gewicht = float(input("Geben Sie Ihr Gewicht in kg an \n"))
+    laenge = float(input("Geben Sie Ihre Koerpergroesse in m an \n"))
+    alter = float(input("Geben Sie Ihr Alter in Jahren an \n"))
 
-    _bmi = bmi(gewicht, laenge)   # globale Variable
+    # input() gibt in Python3 einen String zurück => typecast nötig
+    _bmi = bmi(gewicht, laenge)
     print("BMI: ", _bmi)
     bewertung(_bmi, alter)
 
