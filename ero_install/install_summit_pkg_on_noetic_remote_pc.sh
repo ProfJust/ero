@@ -11,14 +11,18 @@ cd ~/catkin_ws/src/
 
 mkdir -p ero_src
 
-git clone https://github.com/RobotnikAutomation/summit_xl_sim
-git clone https://github.com/RobotnikAutomation/summit_xl_common
-git clone https://github.com/RobotnikAutomation/robotnik_msgs
-git clone https://github.com/RobotnikAutomation/robotnik_sensors
+# no noetic version available 15.4.21, so use melodic-devel
+git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-devel
+git clone https://github.com/RobotnikAutomation/summit_xl_common -b melodic-devel
+git clone https://github.com/RobotnikAutomation/robotnik_msgs -b melodic-devel
+git clone https://github.com/RobotnikAutomation/robotnik_sensors -b melodic-devel
 git clone https://github.com/rst-tu-dortmund/costmap_prohibition_layer.git
-git clone https://github.com/ros-planning/navigation.git
-git clone https://github.com/cra-ros-pkg/robot_localization.git
-git clone https://github.com/ros-geographic-info/geographic_info.git
+
+# noetic version available 15.4.21, so use it
+git clone https://github.com/ros-planning/navigation.git -b noetic-devel
+git clone https://github.com/cra-ros-pkg/robot_localization.git -b noetic-devel
+
+git clone https://github.com/ros-geographic-info/geographic_info.git 
 git clone https://github.com/ros-geographic-info/unique_identifier.git
 
 sudo apt-get dist-upgrade -y   #-y ist ohne Ja Abfrage
