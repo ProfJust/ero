@@ -6,9 +6,9 @@
 # Starten
 # $1 roscore
 # $2 rosrun turtlesim turtlesim_node
-# $3 python moveTurtle_distance.py - vorher ausfuehrbar machen mit chmod +x 
+# $3 rosrun ero p2_moveTurtle_distance_LOESUNG_SS21
+# (vorher catkin_make und  ausführbar machen mit chmod +x)
 # ------------------------------------------
-
 
 import rospy
 import math

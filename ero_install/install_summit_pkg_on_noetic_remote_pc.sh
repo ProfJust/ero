@@ -9,7 +9,7 @@ sudo apt-get dist-upgrade
 pwd
 cd ~/catkin_ws/src/
 
-mkdir -p ero_src
+# mkdir -p ero_src
 
 git clone https://github.com/RobotnikAutomation/summit_xl_sim
 git clone https://github.com/RobotnikAutomation/summit_xl_common
@@ -23,7 +23,8 @@ git clone https://github.com/ros-geographic-info/unique_identifier.git
 
 sudo apt-get dist-upgrade -y   #-y ist ohne Ja Abfrage
 sudo apt-get update -y
-sudo apt-get install ros-noetic-navigation -y
+# Test
+sudo apt-get install ros-$(rosversion -d)-navigation -y
 sudo apt-get install ros-noetic-robot-localization -y
 sudo apt-get install ros-noetic-mavros-* -y
 sudo apt-get install ros-noetic-gmapping -y
@@ -37,6 +38,7 @@ sudo apt-get install ros-noetic-twist-mux -y
 sudo apt-get install ros-noetic-teleop-twist-keyboard -y
 sudo apt-get install ros-noetic-tf2-sensor-msgs -y
 sudo apt-get install ros-noetic-velocity-controllers -Y
+sudo apt-get install ros-noetic-diff-drive-controller
 
 sudo apt-get install libsdl-image1.2-dev and
 sudo apt-get install libsdl-dev

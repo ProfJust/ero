@@ -58,8 +58,8 @@ def move():
     rate = rospy.Rate(10)
     
     # ---- Get the input from the user ----
-    dist_x = input("Set your x dist: ")
-    dist_y = input("Set your y dist: ")
+    dist_x = float(input("Set your x dist: "))
+    dist_y = float(input("Set your y dist: "))
     dist = sqrt(pow(dist_x, 2) + pow(dist_y, 2))
     sollTheta = atan2(dist_y, dist_x)
     
