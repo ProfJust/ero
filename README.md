@@ -3,16 +3,21 @@ Aktueller Code zum Wahl-Modul (Bachelor) "Einführung in die Roboterprogrammieru
 
 Anwendung:
 
-     Klonen des Repositoriums 
+     Klonen des Repositoriums - Version SS21 für ROS-Noetic
      $ cd /catkin_ws/src/
      $ git clone https://github.com/ProfJust/ero
+
+     Ggf. ROS-Noetic installieren (Ubuntu 20.4, Focal Fossa)
+     $ cd /ero/ero_install
+     $ chmod +x ROS_Noetic_Installation_auf_Remote_PC.sh
+     $ ./ROS_Noetic_Installation_auf_Remote_PC.sh
      
      Installieren der benötigten Pakete mit Shell-Skript
      $ cd /ero/ero_install
-     $ chmod +x install_summit_pkg_on_remote_pc.sh
-     $ ./install_summit_pkg_on_remote_pc.sh
+     $ chmod +x install_summit_pkg_on_noetic_remote_pc.sh
+     $ ./install_summit_pkg_on_rnoetic_remote_pc.sh
 
-     Kompilieren
+     Kompilieren, geht nur im richtigen Verzeichnis
      $ cd ~/catkin_ws/
      $ catkin_make
      
