@@ -9,7 +9,7 @@ sudo apt-get dist-upgrade
 pwd
 cd ~/catkin_ws/src/
 
-mkdir -p ero_src
+# mkdir -p ero_src
 
 # no noetic version available 15.4.21, so use melodic-devel
 git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-devel
@@ -43,6 +43,8 @@ sudo apt-get install ros-noetic-tf2-sensor-msgs -y
 sudo apt-get install ros-noetic-velocity-controllers -Y
 # added by OJ 16.04.21
 sudo apt-get install ros-noetic-velocity-controllers -y
+sudo apt-get install ros-noetic-diff-drive-controller -y
+
 
 
 sudo apt-get install libsdl-image1.2-dev and
