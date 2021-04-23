@@ -11,7 +11,7 @@
 datei = open("poesiealbum.txt", "w")
 datei.write("Zoegest Du die Beine ein\n")
 datei.write("koenntest Du ne Kugel sein\n")
-datei.close();
+datei.close()
 
 # "a" => append/ anhaengen
 datei = open("poesiealbum.txt", "a")  
