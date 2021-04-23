@@ -8,6 +8,6 @@
         "/opt/ros/noetic/lib/python3/dist-packages"
     ],
     
-    "cornflakes.linter.executablePath": "path/to/venvs/myvenv/bin/flake8"
+    "cornflakes.linter.executablePath": "~/.local/bin/flake8"
     
 }

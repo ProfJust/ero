@@ -79,7 +79,7 @@ def move():
     rospy.Subscriber('/robot/amcl_pose',
                      PoseWithCovarianceStamped,
                      update_pose)  # <= Callback-Fkt
-    rate = rospy.Rate(20)
+    rate = rospy.Rate(10)
 
      # Get the input from the user.
     dist_x = eval(input("Set your x dist: "))
@@ -87,7 +87,7 @@ def move():
 
     # Wegstrecke und Orientierung der Turtle berechnen
     dist_to_go = sqrt(pow(dist_x, 2) + pow(dist_y, 2))
-    sollTheta = atan2(dist_y, dist_x)
+    sollTheta = round(atan2(dist_y, dist_x),4)
 
     # Get start pose of Turtle - meanwhile received?
     start_x = pose.x
@@ -101,7 +101,7 @@ def move():
     vel_msg = Twist()  # Twist Nachricht instanzieren
 
     # --- Erst die Turtle drehen ---
-    tolerance = 0.15
+    tolerance = 0.2
     while (abs(pose.theta- sollTheta) > tolerance):
         # theta auf Bereich [-pi...pi] begrenzen
         if pose.theta > pi:
@@ -111,13 +111,13 @@ def move():
 
         # set Angular velocity in the z-axis.
         if pose.theta - sollTheta > 0:
-            vel_msg.angular.z = -0.2
+            vel_msg.angular.z = -0.3
             rospy.loginfo("turn right")
         else:
-            vel_msg.angular.z = 0.2
+            vel_msg.angular.z = 0.3
             rospy.loginfo("turn left")
         # Debug ausgabe
-        rospy.loginfo("Pose theta is %s", pose.theta)
+        rospy.loginfo("Pose angle is %s", pose.theta)
         rospy.loginfo("Goal angle is %s", sollTheta)
         rospy.loginfo("Still to turn %s ", abs(pose.theta - sollTheta))
         velocity_publisher.publish(vel_msg)  # Publishing our vel_msg
