@@ -6,5 +6,8 @@
     "python.analysis.extraPaths": [
         "/home/oj/catkin_ws/devel/lib/python3/dist-packages",
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    
+    "cornflakes.linter.executablePath": "path/to/venvs/myvenv/bin/flake8"
+    
 }
