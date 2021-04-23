@@ -24,6 +24,7 @@ git clone https://github.com/cra-ros-pkg/robot_localization.git -b noetic-devel
 
 git clone https://github.com/ros-geographic-info/geographic_info.git 
 git clone https://github.com/ros-geographic-info/unique_identifier.git
+git clone https://github.com/ccny-ros-pkg/imu_tools.git -b noetic
 
 sudo apt-get dist-upgrade -y   #-y ist ohne Ja Abfrage
 sudo apt-get update -y
