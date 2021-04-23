@@ -35,7 +35,7 @@ def update_pose(data):
 def move():
     # Creates a node with name 'turtlebot_controller' and make sure it is a
     # unique node (using anonymous=True).
-    rospy.init_node('turtlebot_controller', anonymous=True)
+    rospy.init_node('summit_controller', anonymous=True)
 
     # Publisher which will publish to the topic '/turtle1/cmd_vel'.
     velocity_publisher = rospy.Publisher('/turtle1/cmd_vel',
