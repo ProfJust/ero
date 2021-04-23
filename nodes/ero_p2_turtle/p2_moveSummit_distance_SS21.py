@@ -31,17 +31,12 @@ _pose = PoseWithCovarianceStamped()
 
 
 def update_pose(data):
-   # Callback function which is called when a new message
-    # of type Pose is received by the subscriber.
+    # rospy.loginfo(rospy.get_caller_id()
+    #  + "x %s  y %s  theta %s", data.x, data.y, data.theta)
     _pose.x = round(data.pose.pose.position.x, 4)
-    _pose.y = round(data.pose.pose.position.y, 4)
-    # rospy.loginfo(rospy.get_caller_id() + "x %s  y %s ", pose.x, pose.x)
-    # orientation als Quaternion
-    x = data.pose.pose.orientation.x
-    y = data.pose.pose.orientation.y
-    z = data.pose.pose.orientation.z
-    w = data.pose.pose.orientation.w
-    _pose.theta = quaternion_to_euler(x, y, z, w)
+    #  _pose.y = round(data.y, 4)
+    # _pose.theta = round(data.theta,  4)
+
 
 # --------------------------------------------------------------
 # Haupt Arbeitsfunktion, wird vom main() aufgerudfen
