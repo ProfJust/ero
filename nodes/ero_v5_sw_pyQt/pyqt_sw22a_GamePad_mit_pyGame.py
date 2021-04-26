@@ -1,13 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-## pyqt_sw22a_GamePad_mit_pyGame.py
+##pyqt_sw22_GamePad.py
 
 
 
 # https://github.com/zeth/inputs
-""" sudo apt-get install python-pygame """
+# sudo pip install inputs
 # => DragonRise Inc.   Generic   USB  Joystick
-# OJ: Getestet mit XBox360 Controller am USB
 
 
 import sys
