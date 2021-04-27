@@ -32,7 +32,18 @@ jetzt kann man das gewünschte Python-Skript starten, z.B.
      
 
 jetzt kann man das gewünschte Launch-File starten, z.B. 
+den Summit_XL in der Willow-Garage
      
      $ roslaunch summit_xl_sim_bringup summit_xl_complete.launch move_base_robot_a:=true amcl_and_mapserver_a:=true localization_robot_a:=true id_robot_a:=summit_xl
+
+oder auf dem W-HS-Campus-Bocholt 
+
+     $ roslaunch ero whs_summit_xl_complete.launch
+
+     (dazu müssen die Map-Files an die richtigen Orte kopiert werden, siehe readMe dort)
+
+bzw. in der leeren Welt 
+
+     $ roslaunch ero summit_xl_in_empty_world.launch 
 
 Achtung: Im Ordner changed_summit_files sind die Änderungen zu den originalen Repositorien von Robotnik etc. zu finden. Bei Funktionsproblemen am besten erst mal hier reinschauen.
