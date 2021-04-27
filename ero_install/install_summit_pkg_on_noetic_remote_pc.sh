@@ -1,5 +1,6 @@
 #!/bin/bash
 # script to setup Summit_XL-Workspace
+# Version vom 27.4.2021 incl Map directory kopieren
 
 echo -e "\033[34m ---------- ERO SS21 - Workspace einrichten  ------------ \033[0m "
 
@@ -8,8 +9,6 @@ echo "Shellskript zur Installation der SummitXL-Pakete"
 sudo apt-get dist-upgrade
 pwd
 cd ~/catkin_ws/src/
-
-# mkdir -p ero_src
 
 # no noetic version available 15.4.21, so use melodic-devel
 git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-devel
@@ -53,5 +52,10 @@ sudo apt-get install libsdl-dev
 echo -e "\033[31m Aktualisiere alle Abhaengigkeiten der ROS-Pakete \033[0m"
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
+
+echo -e "\033[34m copying WHS-Map directories to Robotnik-Packages \033[0m"
+cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_map/.  ~/catkin_ws/src/summit_xl_common/summit_xl_localization/maps/whs_world_map
+cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_model/.  ~/.gazebo/models/whs_world_model
+cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world/.  ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
 
 echo -e "\033[31m to do:   $ cd ~/catkin_ws/  ...   catkin_make \033[0m"
