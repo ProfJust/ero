@@ -36,9 +36,10 @@ def set_goal_pose(pose):
 if __name__ == '__main__':
     print('Starting whs_patrol_file.py')
     rospy.init_node('patrol')
-    
+
     # Goals aus Datei holen
-    datei = open("points2read.txt", "r")
+    dir = "/home/oj/catkin_ws/src/ero/nodes/ero_kap13_move_base_action/"
+    datei = open(dir+"points2read.txt", "r")
     text = datei.readline()  # Titelzeile to ignore
     rospy.loginfo(text)
 
@@ -49,9 +50,9 @@ if __name__ == '__main__':
     print('Waiting for Action Server')
     client.wait_for_server()
     wayPointNr = 1
-  
+
     while not rospy.is_shutdown():
-        # get next Pose 
+        # get next Pose
         # read 3 lines => Point
         x_text = datei.readline()
         if x_text == '':  # EOF reached?
@@ -59,10 +60,10 @@ if __name__ == '__main__':
             print('######## Runde zu Ende ##########')
             break
         x = float(x_text[2:])  # ignore first letters x:
-            
+
         y_text = datei.readline()
         y = float(y_text[2:])  # ignore first letters y:
-            
+
         z_text = datei.readline()
         z = float(z_text[2:])  # ignore first letters z:
 
@@ -77,5 +78,5 @@ if __name__ == '__main__':
         client.wait_for_result()
         wait = raw_input("Press Enter to publish next goal...")
 
-        
+
 

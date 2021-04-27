@@ -31,7 +31,7 @@
 	<arg name="x_init_pose_robot_a" default="0" />
 	<arg name="y_init_pose_robot_a" default="0" />
 	<arg name="z_init_pose_robot_a" default="0" />
-    <arg name="ekf_localization_robot_a" default="false"/>
+    <arg name="ekf_localization_robot_a" default="true"/>
     <arg name="ekf_localization_mode_a" default="odom"/>
 	<arg name="gmapping_robot_a" default="false"/>
 	<arg name="move_base_robot_a" default="true"/>   <!-- OJ changed from false -->

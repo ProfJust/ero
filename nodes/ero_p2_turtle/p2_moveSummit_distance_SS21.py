@@ -19,7 +19,7 @@ from turtlesim.msg import Pose
 from math import pow, atan2, asin, sqrt, pi
 
 # --- globale Variablen ---
-# instanziere ein Objekt vom ROS-Typ Pose (s.o. => import)  
+# instanziere ein Objekt vom ROS-Typ Pose (s.o. => import)
 pose = Pose()
 
 # --------------------------------------------------------------
@@ -28,7 +28,8 @@ pose = Pose()
 # pitch is rotation around y in radians (counterclockwise)
 # yaw is rotation around z in radians (counterclockwise)
 # https://computergraphics.stackexchange.com/questions/8195/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr
- 
+
+
 def quaternion_to_euler(x, y, z, w):
     t3 = +2.0 * (w * z + x * y)
     t4 = +1.0 - 2.0 * (y * y + z * z)
@@ -43,21 +44,25 @@ def quaternion_to_euler(x, y, z, w):
 #
 # Callback function which is called when a new message
 # of type Pose is received by the subscriber.
+
+
 def update_pose(data):
-   # Callback function which is called when a new message
+    # Callback function which is called when a new message
     # of type Pose is received by the subscriber.
-    pose.x = round(data.pose.pose.position.x,4)
-    pose.y = round(data.pose.pose.position.y,4)
+    pose.x = round(data.pose.pose.position.x, 4)
+    pose.y = round(data.pose.pose.position.y, 4)
     # rospy.loginfo(rospy.get_caller_id() + "x %s  y %s ", pose.x, pose.x)
     # orientation als Quaternion
     x = data.pose.pose.orientation.x
     y = data.pose.pose.orientation.y
     z = data.pose.pose.orientation.z
     w = data.pose.pose.orientation.w
-    pose.theta = round(quaternion_to_euler(x, y, z, w),4)
+    pose.theta = round(quaternion_to_euler(x, y, z, w), 4)
 
 # --------------------------------------------------------------
 # Haupt Arbeitsfunktion, wird vom main() aufgerudfen
+
+
 def move():
     # ----- Init -----
     # Creates a node with name 'turtlebot_controller' and make sure it is a
@@ -66,11 +71,12 @@ def move():
 
     # Publisher which will publish to the topic '/turtle1/cmd_vel'.
     # Achtung, nicht das selbe Topic nehmen wie im RVIZ Teleop Panel
-    # velocity_publisher = rospy.Publisher('/robot/robotnik_base_control/cmd_vel',
-    # das pad_teleop hat eine höhere Priorität im TwistMux als
+    # velocity_publisher =
+    # rospy.Publisher('/robot/robotnik_base_control/cmd_vel',
+    # das pad_teleop hat eine höhere Prioritaet im TwistMux als
     # robotnik_base_control und ueberschreibt den /cmd_vel von dort
     velocity_publisher = rospy.Publisher('/robot/pad_teleop/cmd_vel',
-                                          Twist, queue_size=10)
+                                         Twist, queue_size=10)
     # instanziere ein Objekt vom ROS-Typ Twist (s.o. => import)
     vel_msg = Twist()  # enthaelt cmd_vel
 
@@ -81,13 +87,13 @@ def move():
                      update_pose)  # <= Callback-Fkt
     rate = rospy.Rate(10)
 
-     # Get the input from the user.
+    # Get the input from the user.
     dist_x = eval(input("Set your x dist: "))
     dist_y = eval(input("Set your y dist: "))
 
     # Wegstrecke und Orientierung der Turtle berechnen
     dist_to_go = sqrt(pow(dist_x, 2) + pow(dist_y, 2))
-    sollTheta = round(atan2(dist_y, dist_x),4)
+    sollTheta = round(atan2(dist_y, dist_x), 4)
 
     # Get start pose of Turtle - meanwhile received?
     start_x = pose.x
@@ -102,7 +108,7 @@ def move():
 
     # --- Erst die Turtle drehen ---
     tolerance = 0.2
-    while (abs(pose.theta- sollTheta) > tolerance):
+    while (abs(pose.theta - sollTheta) > tolerance):
         # theta auf Bereich [-pi...pi] begrenzen
         if pose.theta > pi:
             pose.theta = pose.theta - 2 * pi
