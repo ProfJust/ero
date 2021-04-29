@@ -44,6 +44,8 @@ sudo apt-get install ros-noetic-tf2-sensor-msgs -y
 sudo apt-get install ros-noetic-velocity-controllers -Y
 # added by OJ 16.04.21
 sudo apt-get install ros-noetic-velocity-controllers -y
+# added by OJ 28.4.21
+sudo apt-get install pyqt5-dev-tools -y
 
 
 sudo apt-get install libsdl-image1.2-dev and
