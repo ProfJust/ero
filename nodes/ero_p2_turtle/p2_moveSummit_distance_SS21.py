@@ -5,7 +5,13 @@
 # ----------------------------------
 # Starten
 # $1 roscore
-# $2 roslaunch ero summit_xl_in_empty_world.launch
+# $2 roslaunch summit_xl_sim_bringup
+# summit_xl_complete.launch
+#  move_base_robot_a:=true
+#  amcl_and_mapserver_a:=true
+#  localization_robot_a:=true
+#  id_robot_a:=summit_xl
+#
 # $3 rosrun ero p2_moveTurtle_distance_VORGABE.py
 # (vorher catkin_make und  ausführbar machen mit chmod +x)
 # ------------------------------------------
