@@ -5,7 +5,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
-from math import pi, pow, atan2, sqrt
+from math import pow, atan2, sqrt
 
 
 class TurtleClass:  # ---- unsere Klasse fuer die Turtle-Sim ------
