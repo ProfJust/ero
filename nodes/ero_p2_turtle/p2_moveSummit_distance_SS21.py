@@ -5,7 +5,7 @@
 # ----------------------------------
 # Starten
 # $1 roscore
-# $2 rosrun turtlesim turtlesim_node
+# $2 roslaunch ero summit_xl_in_empty_world.launch
 # $3 rosrun ero p2_moveTurtle_distance_VORGABE.py
 # (vorher catkin_make und  ausführbar machen mit chmod +x)
 # ------------------------------------------
@@ -16,7 +16,7 @@ from geometry_msgs.msg import Twist
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from turtlesim.msg import Pose
 
-from math import pow, atan2, asin, sqrt, pi
+from math import pow, atan2, sqrt, pi
 
 # --- globale Variablen ---
 # instanziere ein Objekt vom ROS-Typ Pose (s.o. => import)
