@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # whs_gazebo_patrol.py
 # -----------------------------------------------------------------
-# Version vom 22.05.2020 mit Wegpunkten
-# alle summit_xl_a werden auf robot umgestellt
+# Version vom 29.04.2021 mit Wegpunkten
 #
 # by OJ fuer robotik.bocholt@w-hs.de
 # Ursprung: Buch von Quigley, "Prog. Robots with ROS", S161
@@ -21,22 +20,17 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 waypoints = [
     [(-3.3, 2.0, 0.000), (0.000, 0.000, 0.990, 0.914)],  # per clicked point
     [(-3.3, 10.0, 0.000), (0.000, 0.000, 0.990, 0.914)],
-    [(-3.0, 27.0, 0.000), (0.000, 0.000, 1.0, 1.0)],
+    [(-3.3, 27.0, 0.000), (0.000, 0.000, 1.0, 1.0)],
 ]
+
 
 # Helper Function to turn waypoint => MoveBaseGoal
 def set_goal_pose(pose):
-    # origin = [-17.000000, 61.000000, -1.5500000]
     goal_pose = MoveBaseGoal()  # lokales Objekt instanzieren
     # lokales Objekt mit Werten fuellen
-    goal_pose.target_pose.header.frame_id = 'robot_map'  # sim: summit_xl_a_map
+    goal_pose.target_pose.header.frame_id = 'robot_map'
     goal_pose.target_pose.pose.position.x = pose[0][0]
-    goal_pose.target_pose.pose.position.y = pose[0][1]
-    goal_pose.target_pose.pose.position.z = pose[0][2]
-    goal_pose.target_pose.pose.orientation.x = pose[1][0]
-    goal_pose.target_pose.pose.orientation.y = pose[1][1]
-    goal_pose.target_pose.pose.orientation.z = pose[1][2]
-    goal_pose.target_pose.pose.orientation.w = pose[1][3]
+    # ...   
     return goal_pose
 
 
