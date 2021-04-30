@@ -34,7 +34,7 @@
 	<arg name="x_init_pose_robot_a" default="0" />
 	<arg name="y_init_pose_robot_a" default="0" />
 	<arg name="z_init_pose_robot_a" default="0" />
-    <arg name="ekf_localization_robot_a" default="true"/>
+    <arg name="ekf_localization_robot_a" default="false"/>
     <arg name="ekf_localization_mode_a" default="odom"/>
 	<arg name="gmapping_robot_a" default="false"/>
 	<arg name="move_base_robot_a" default="true"/>   <!-- OJ changed from false -->
@@ -46,15 +46,7 @@
 	<arg name="gps_longitude_robot_a" default="7.4619816"/> <!-- OJ changed -->
     <arg name="has_pantilt_camera_a" default="false"/>
 
-    <!-- gazebo simulation and rviz visualization
-	     First start Gazebo with world, then spawn robot -->
-	<include file="$(find summit_xl_gazebo)/launch/gazebo_rviz.launch">
-		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
-		<arg name="world" value="$(arg gazebo_world)"/>
-		<arg name="debug" value="$(arg debug)"/>
-	</include>
-
-	<!--Spawn ROBOT 1-->
+    <!--Spawn ROBOT 1-->
 	<include if="$(arg launch_robot_a)" file="$(find summit_xl_gazebo)/launch/summit_xl_one_robot.launch">
 		<arg name="id_robot" value="$(arg id_robot_a)"/>
 		<arg name="x_init_pose" value="$(arg x_init_pose_robot_a)"/>
@@ -81,6 +73,12 @@
 		<arg name="gps_latitude" value="$(arg gps_latitude_robot_a)"/>
 	</include>
 
+	<!-- gazebo simulation and rviz visualization -->
+	<include file="$(find summit_xl_gazebo)/launch/gazebo_rviz.launch">
+		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
+		<arg name="world" value="$(arg gazebo_world)"/>
+		<arg name="debug" value="$(arg debug)"/>
+	</include>
 	
 	
 </launch>
