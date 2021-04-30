@@ -88,10 +88,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>136 970000000</sim_time>
-      <real_time>137 213898412</real_time>
-      <wall_time>1619774002 682170356</wall_time>
-      <iterations>136970</iterations>
+      <sim_time>0 0</sim_time>
+      <real_time>0 0</real_time>
+      <wall_time>1619773711 506019009</wall_time>
+      <iterations>0</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -103,10 +103,10 @@
         </link>
       </model>
       <model name='whs_world'>
-        <pose>-0.010282 -0.12361 0 0 0 -3.14044</pose>
+        <pose>-0.010282 -0.12361 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose>-0.010283 -0.12361 0 0 0 -3.14044</pose>
+          <pose>-0.010281 -0.12361 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -118,7 +118,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>0.096853 0.019143 24.0913 3.14159 1.57079 3.14159</pose>
+        <pose>0.096853 0.037092 24.0913 3.14159 1.57079 3.14159</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

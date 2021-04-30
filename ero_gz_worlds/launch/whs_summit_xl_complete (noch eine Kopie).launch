@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- OJ  4.6.2020: ero launch-file für Summit_XL in der WHS-Welt
+		Zusammengebaut aus summit_xl_gazebo.launch und
+		                   summit_xl_one_robot.launch 
+     OJ 27.4.2021: Änderungen bei den Argumenten im Robotnik-Paket-->
+
+<launch>
+	<!-- added global ROS -Parameter OJ 22.5.20-->
+	<param name="/use_sim_time" value="true"/>	
+
+	<!-- arg to config the launch file-->
+	<arg name="launch_rviz" default="true"/>
+	<!-- arguments robot a -->
+	<arg name="launch_robot_a" default="true"/>
+	<arg name="default_xacro" default="summit_xl_std.urdf.xacro"/>
+    
+	<!-- OJ Hier unsere Map und unsere World bekanntgeben
+		Map und Welt wird nur im Ordner summit_xl_gazebo/words gefunden
+		nicht im ero Ordner => vorher dorthin kopieren	-->
+
+	<arg name="gazebo_world" value="$(find summit_xl_gazebo)/worlds/whs.world"/>
+    <arg name="map_file_a" default="/whs_world_map/whs.yaml"/>
+	
+	<arg name="debug" default="false"/>
+	<arg name="omni_drive" default="false"/>
+	<arg name="ros_planar_move_plugin" default="false"/>
+    <arg name="launch_advanced_simulation" default="false"/>
+    <arg name="use_gpu_for_simulation" default="false"/>
+	
+	<!-- arguments robot a -->
+	<!-- GPS default position of Robotnik at Fuente del Jarro-->
+	<!-- robot a -->
+	<arg name="id_robot_a" default="robot"/>
+	<arg name="x_init_pose_robot_a" default="0" />
+	<arg name="y_init_pose_robot_a" default="0" />
+	<arg name="z_init_pose_robot_a" default="0" />
+    <arg name="ekf_localization_robot_a" default="false"/>
+	<arg name="localization_robot_a" default="true"/>
+    <arg name="ekf_localization_mode_a" default="odom"/>
+	<arg name="gmapping_robot_a" default="false"/>
+	<arg name="move_base_robot_a" default="true"/>   <!-- OJ changed from false -->
+	<arg name="amcl_and_mapserver_a" default="true"/>  <!-- OJ changed from false -->
+	<!-- <arg name="map_file_a" default="$(arg map_file)"/>  -->
+	<arg name="xacro_robot_a" default="$(arg default_xacro)"/>
+	<arg name="launch_pad_a" default="false"/>
+	<arg name="gps_latitude_robot_a" default="51.5080331"/> <!-- OJ changed -->
+	<arg name="gps_longitude_robot_a" default="7.4619816"/> <!-- OJ changed -->
+    <arg name="has_pantilt_camera_a" default="false"/>
+
+    <!--Spawn ROBOT 1-->
+	<include if="$(arg launch_robot_a)" file="$(find summit_xl_gazebo)/launch/summit_xl_one_robot.launch">
+		<arg name="id_robot" value="$(arg id_robot_a)"/>
+		<arg name="x_init_pose" value="$(arg x_init_pose_robot_a)"/>
+		<arg name="y_init_pose" value="$(arg y_init_pose_robot_a)"/>
+		<arg name="z_init_pose" value="$(arg z_init_pose_robot_a)"/>
+		<arg name="xacro_robot" value="$(arg xacro_robot_a)"/>
+        <arg name="launch_robot_ekf_localization" value="$(arg ekf_localization_robot_a)"/>
+        <arg name="robot_ekf_localization_mode" value="$(arg ekf_localization_mode_a)"/>
+		<arg name="launch_amcl_and_mapserver" value="$(arg amcl_and_mapserver_a)"/>
+		<arg name="launch_gmapping" value="$(arg gmapping_robot_a)"/>
+		<!-- Pfade mit value sind relativ zum Launch File => Map hinkopieren
+			$ cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_map/.  ~/catkin_ws/src/summit_xl_common/summit_xl_localization/maps/whs_world_map
+			$ cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_model/.  ~/.gazebo/models/whs_world_model
+			$ cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world/.  ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
+		-->
+		<arg name="map_file" value="$(arg map_file_a)"/>   	
+ 		<arg name="launch_move_base" value="$(arg move_base_robot_a)"/>
+		<arg name="omni_drive" value="$(arg omni_drive)"/>
+		<arg name="ros_planar_move_plugin" value="$(arg ros_planar_move_plugin)"/>
+		<arg name="launch_pad" value="$(arg launch_pad_a)"/>
+        <arg name="launch_advanced_simulation" value="$(arg launch_advanced_simulation)"/>
+        <arg name="use_gpu_for_simulation" value="$(arg use_gpu_for_simulation)"/>
+        
+		<arg name="gps_latitude" value="$(arg gps_latitude_robot_a)"/>
+	</include>
+
+	<!-- gazebo simulation and rviz visualization -->
+	<include file="$(find summit_xl_gazebo)/launch/gazebo_rviz.launch">
+		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
+		<arg name="world" value="$(arg gazebo_world)"/>
+		<arg name="debug" value="$(arg debug)"/>
+	</include>
+	
+	
+</launch>
