@@ -12,6 +12,7 @@ cd ~/catkin_ws/src/
 
 # no noetic version available 15.4.21, so use melodic-devel
 # siehe auch https://index.ros.org/p/summit_xl_gazebo/  etc.
+# melodic-master ist hinterher und hat noch viele unnütze? Ordner 
 git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-devel
 git clone https://github.com/RobotnikAutomation/summit_xl_common -b melodic-devel
 git clone https://github.com/RobotnikAutomation/robotnik_msgs -b melodic-devel
