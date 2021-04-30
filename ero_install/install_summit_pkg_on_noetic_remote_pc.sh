@@ -11,8 +11,9 @@ pwd
 cd ~/catkin_ws/src/
 
 # no noetic version available 15.4.21, so use melodic-devel
-git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-master
-git clone https://github.com/RobotnikAutomation/summit_xl_common -b melodic-master
+# siehe auch https://index.ros.org/p/summit_xl_gazebo/  etc.
+git clone https://github.com/RobotnikAutomation/summit_xl_sim -b melodic-devel
+git clone https://github.com/RobotnikAutomation/summit_xl_common -b melodic-devel
 git clone https://github.com/RobotnikAutomation/robotnik_msgs -b melodic-devel
 git clone https://github.com/RobotnikAutomation/robotnik_sensors -b melodic-devel
 git clone https://github.com/rst-tu-dortmund/costmap_prohibition_layer.git
