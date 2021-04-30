@@ -1,14 +1,23 @@
-#!/usr/bin/env python3
-# --- move.py ------
-# Version vom 28.4.2021 by OJ
-# ----------------------------------
+# --- TurtleSimClassDef.py ------
+# Version vom 29.4.2021 by OJ
+# Definition der TurtleClass
+# für den TurtleSim Node
+# ------------------------------------------------
+# kann in anderen Sripten importiert
+#   import TurtleSimClassDef
+# und dann Instanziert werden, z.B.
+#   turtle1 =
+#    TurtleSimClassDef.TurtleSimClass("turtle1")
+# ------------------------------------------------
+
+
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 from math import pow, atan2, sqrt
 
 
-class TurtleClass:  # ---- unsere Klasse fuer die Turtle-Sim ------
+class TurtleSimClass:  # ---- unsere Klasse fuer die Turtle-Sim ------
     # ---- Konstruktor ---
     def __init__(self, name):
         self.name = name
@@ -122,19 +131,3 @@ class TurtleClass:  # ---- unsere Klasse fuer die Turtle-Sim ------
             self.pose_speed_info()
 
         self.stop_robot()  # when goal is reached
-
-
-if __name__ == '__main__':
-    try:
-        turtle1 = TurtleClass("turtle1")  # Instanzierung eines Objektes
-        turtle1.getGoalFromUser()
-        turtle1.start_info()
-        turtle1.move2goal()
-
-        turtle2 = TurtleClass("turtle2")  # Instanzierung eines Objektes
-        turtle2.getGoalFromUser()
-        turtle2.start_info()
-        turtle2.move2goal()
-    except rospy.ROSInterruptException:
-        pass
-

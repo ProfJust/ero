@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # --- move.py ------
 # Version vom 11.10.2019 by OJ
 import rospy
