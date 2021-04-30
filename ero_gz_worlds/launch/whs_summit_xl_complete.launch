@@ -14,8 +14,11 @@
 	<arg name="launch_robot_a" default="true"/>
 	<arg name="default_xacro" default="summit_xl_std.urdf.xacro"/>
     
-	<!-- OJ Hier unsere Map und unsere World bekanntgeben-->
-	<arg name="gazebo_world" value="$(find ero)/ero_gz_worlds/whs_world.world"/>
+	<!-- OJ Hier unsere Map und unsere World bekanntgeben
+		Map und Welt wird nur im Ordner summit_xl_gazebo/words gefunden
+		nicht im ero Ordner => vorher dorthin kopieren	-->
+
+	<arg name="gazebo_world" value="$(find summit_xl_gazebo)/worlds/whs.world"/>
     <arg name="map_file_a" default="/whs_world_map/whs.yaml"/>
 	
 	<arg name="debug" default="false"/>
@@ -42,6 +45,14 @@
 	<arg name="gps_latitude_robot_a" default="51.5080331"/> <!-- OJ changed -->
 	<arg name="gps_longitude_robot_a" default="7.4619816"/> <!-- OJ changed -->
     <arg name="has_pantilt_camera_a" default="false"/>
+
+    <!-- gazebo simulation and rviz visualization
+	     First start Gazebo with world, then spawn robot -->
+	<include file="$(find summit_xl_gazebo)/launch/gazebo_rviz.launch">
+		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
+		<arg name="world" value="$(arg gazebo_world)"/>
+		<arg name="debug" value="$(arg debug)"/>
+	</include>
 
 	<!--Spawn ROBOT 1-->
 	<include if="$(arg launch_robot_a)" file="$(find summit_xl_gazebo)/launch/summit_xl_one_robot.launch">
@@ -71,10 +82,5 @@
 	</include>
 
 	
-	 <!-- gazebo simulation and rviz visualization-->
-	<include file="$(find summit_xl_gazebo)/launch/gazebo_rviz.launch">
-		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
-		<arg name="world" value="$(arg gazebo_world)"/>
-		<arg name="debug" value="$(arg debug)"/>
-	</include>
+	
 </launch>
