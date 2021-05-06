@@ -13,6 +13,8 @@
 #
 # Hier gibt es kein Pose-Topic, nur die Odometrie
 # des Summit /robot/robotnik_base_control/odom
+# Problem: Sobald der Summit dreht, stimmt die Odometrie
+# - Pose nicht mehr mit der Gazebo-Welt überein
 # --------------------------------------------------
 
 import sys
