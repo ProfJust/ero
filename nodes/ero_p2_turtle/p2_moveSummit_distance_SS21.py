@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# --- p2_moveTurtle_distance_VORGABE.py ------
-# Version vom 22.4.2021 by OJ
+# --- p2_moveSummit_distance_SS21.py ------
+# Version vom 6.5.2021 by OJ
 # ohne OOP und Klasse
 # ----------------------------------
 # Starten
