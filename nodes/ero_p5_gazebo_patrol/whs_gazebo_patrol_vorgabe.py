@@ -15,10 +15,10 @@ import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 # Die Wegpunkte Ort (x,y,z) + Orientierung (x,y,z,w)
-# Tipp: mit rostopic echo /clicked_point werden die in RVIZ
-# angeklickten Punkte (Publish Point) angezeigt
+# Tipp: mit rostopic echo /clicked_goal werden die in RViZ
+# per 2D Nav Goal Pfeil angeklickten Goals angezeigt
 waypoints = [
-    [(-3.2, 0.35, 0.000), (0.000, 0.000, 0.72, 0.68)],  # per clicked point
+    [(-3.2, 0.35, 0.000), (0.000, 0.000, 0.72, 0.68)],
     [(-4.0, 31.1, 0.000), (0.000, 0.000, 0.24, 0.96)],
     [(57.5, 29.6, 0.000), (0.000, 0.000, -0.47, 0.88)],
     [(62.9, -50.6, 0.000), (0.000, 0.000, -0.95, 0.32)],
@@ -33,7 +33,7 @@ def set_goal_pose(pose):
     # lokales Objekt mit Werten fuellen
     goal_pose.target_pose.header.frame_id = 'robot_map'
     goal_pose.target_pose.pose.position.x = pose[0][0]
-    # ...   
+    # ...hier Code ergänzen
     return goal_pose
 
 

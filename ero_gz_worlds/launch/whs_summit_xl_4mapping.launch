@@ -38,41 +38,18 @@
 	<arg name="launch_robot_a" default="true"/>
 
 	<!-- OJ  arg name="map_file_a" default="willow_garage/willow_garage.yaml"/  -->
-	<arg name="map_file_a" default="/whs_world_map/whs.yaml"/>
+	<arg name="map_file_a" default="/whs_world_map/p5_whs_map.yaml"/>
 
-	<arg name="gmapping_robot_a" default="false"/>
+	<arg name="gmapping_robot_a" default="true"/>
 	<arg name="move_base_robot_a" default="true"/>
 	<arg name="ekf_localization_robot_a" default="false"/>
-	<arg name="amcl_and_mapserver_a" default="true"/>
+	<arg name="amcl_and_mapserver_a" default="false"/>
 	<arg name="launch_pad_a" default="false"/>
 	<arg name="gps_latitude_robot_a" default="39.5080331"/>
 	<arg name="gps_longitude_robot_a" default="-0.4619816"/>
 	<arg name="has_pantilt_camera_a" default="true"/>
 
-	<!-- arguments robot b -->
-	<arg name="launch_robot_b" default="false"/>
-	<arg name="map_file_b" default="willow_garage/willow_garage.yaml"/>
-	<arg name="gmapping_robot_b" default="false"/>
-	<arg name="move_base_robot_b" default="false"/>
-	<arg name="ekf_localization_robot_b" default="false"/>
-	<arg name="amcl_and_mapserver_b" default="false"/>
-	<arg name="launch_pad_b" default="false"/>
-	<arg name="gps_latitude_robot_b" default="39.5080331"/>
-	<arg name="gps_longitude_robot_b" default="-0.4619816"/>
-	<arg name="has_pantilt_camera_b" default="true"/>
-
-	<!-- arguments robot c -->
-	<arg name="launch_robot_c" default="false"/>
-	<arg name="map_file_c" default="willow_garage/willow_garage.yaml"/>
-	<arg name="gmapping_robot_c" default="false"/>
-	<arg name="move_base_robot_c" default="false"/>
-	<arg name="ekf_localization_robot_c" default="false"/>
-	<arg name="amcl_and_mapserver_c" default="false"/>
-	<arg name="launch_pad_c" default="false"/>
-	<arg name="gps_latitude_robot_c" default="39.5080331"/>
-	<arg name="gps_longitude_robot_c" default="-0.4619816"/>
-	<arg name="has_pantilt_camera_c" default="true"/>
-
+	
 	<include file="$(find summit_xl_gazebo)/launch/summit_xl_gazebo.launch">
 		<!-- general args -->
 		<arg name="launch_rviz" value="$(arg launch_rviz)"/>
@@ -92,30 +69,13 @@
 		<arg name="gps_latitude_robot_a" value="$(arg gps_latitude_robot_a)"/>
 		<arg name="gps_longitude_robot_a" value="$(arg gps_longitude_robot_a)"/>
 		<arg name="has_pantilt_camera_a" default="$(arg has_pantilt_camera_a)"/>
-		<!-- robot_b args -->
-		<arg name="launch_robot_b" value="$(arg launch_robot_b)"/>
-		<arg name="gmapping_robot_b" value="$(arg gmapping_robot_b)"/>
-		<arg name="move_base_robot_b" value="$(arg move_base_robot_b)"/>
-		<arg name="ekf_localization_robot_b" value="$(arg ekf_localization_robot_b)"/>
-		<arg name="amcl_and_mapserver_b" value="$(arg amcl_and_mapserver_b)"/>
-		<arg name="map_file_b" value="$(arg map_file_b)"/>
-		<arg name="launch_pad_b" value="$(arg launch_pad_b)"/>
-		<arg name="gps_latitude_robot_b" value="$(arg gps_latitude_robot_b)"/>
-		<arg name="gps_longitude_robot_b" value="$(arg gps_longitude_robot_b)"/>
-		<arg name="has_pantilt_camera_b" default="$(arg has_pantilt_camera_b)"/>
-		<!-- robot_c args -->
-		<arg name="launch_robot_c" value="$(arg launch_robot_c)"/>
-		<arg name="gmapping_robot_c" value="$(arg gmapping_robot_c)"/>
-		<arg name="move_base_robot_c" value="$(arg move_base_robot_c)"/>
-		<arg name="ekf_localization_robot_c" value="$(arg ekf_localization_robot_c)"/>
-		<arg name="amcl_and_mapserver_c" value="$(arg amcl_and_mapserver_c)"/>
-		<arg name="map_file_c" value="$(arg map_file_c)"/>
-		<arg name="launch_pad_c" value="$(arg launch_pad_c)"/>
-		<arg name="gps_latitude_robot_c" value="$(arg gps_latitude_robot_c)"/>
-		<arg name="gps_longitude_robot_c" value="$(arg gps_longitude_robot_c)"/>
-		<arg name="has_pantilt_camera_c" default="$(arg has_pantilt_camera_c)"/>
+		
 	</include>
 
- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ero)/ero_rviz/summit_navigation_rviz_SS21.rviz" />
+ <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ero)/ero_rviz/summit_whs_p5_mapping_SS21.rviz" />
+
+ <!-- Tastensteuerung in eigener Shell starten -->
+	<node pkg="ero" type="start_teleop.sh" name="teleop_node" output="screen" />
+	<remap from="/cmd_vel" to="/robot/robotnik_base_control/cmd_vel" /> 
 
 </launch>
