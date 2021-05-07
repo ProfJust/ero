@@ -12,6 +12,10 @@
    spawn status: SpawnModel: Entity pushed to spawn queue, but spawn service timed out 
    waiting for entity to appear in simulation under the name robot
    [ERROR] [1620371041.622530, 136.971000]: Spawn service failed. Exiting.
+
+
+   MAP_SAVER mit eigenen Topic
+   $  rosrun map_server map_saver map:=/robot/map -f ~/catkin_ws/src/ero/ero_maps/p5_whs_map
    -->
 
 <launch>
@@ -43,8 +47,12 @@
 	<arg name="gmapping_robot_a" default="true"/>
 	<arg name="move_base_robot_a" default="true"/>
 	<arg name="ekf_localization_robot_a" default="false"/>
-	<arg name="amcl_and_mapserver_a" default="false"/>
+	<arg name="amcl_and_mapserver_a" default="true"/>
+	
+	<arg name="joy_dev" value="/dev/input/js0"/> <!-- was js_base-->
 	<arg name="launch_pad_a" default="false"/>
+	<arg name="pad_model" value="logitechf710"/> <!-- was "ps4"-->
+	
 	<arg name="gps_latitude_robot_a" default="39.5080331"/>
 	<arg name="gps_longitude_robot_a" default="-0.4619816"/>
 	<arg name="has_pantilt_camera_a" default="true"/>
