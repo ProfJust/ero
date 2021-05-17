@@ -1,0 +1,44 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/oj/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/oj/catkin_ws/src/navigation/amcl/include/**",
+        "/home/oj/catkin_ws/src/navigation/base_local_planner/include/**",
+        "/home/oj/catkin_ws/src/navigation/carrot_planner/include/**",
+        "/home/oj/catkin_ws/src/navigation/clear_costmap_recovery/include/**",
+        "/home/oj/catkin_ws/src/navigation/costmap_2d/include/**",
+        "/home/oj/catkin_ws/src/costmap_prohibition_layer/include/**",
+        "/home/oj/catkin_ws/src/navigation/dwa_local_planner/include/**",
+        "/home/oj/catkin_ws/src/geographic_info/geodesy/include/**",
+        "/home/oj/catkin_ws/src/navigation/global_planner/include/**",
+        "/home/oj/catkin_ws/src/imu_tools/imu_complementary_filter/include/**",
+        "/home/oj/catkin_ws/src/imu_tools/imu_filter_madgwick/include/**",
+        "/home/oj/catkin_ws/src/navigation/map_server/include/**",
+        "/home/oj/catkin_ws/src/navigation/move_base/include/**",
+        "/home/oj/catkin_ws/src/navigation/move_slow_and_clear/include/**",
+        "/home/oj/catkin_ws/src/navigation/nav_core/include/**",
+        "/home/oj/catkin_ws/src/navigation/navfn/include/**",
+        "/home/oj/catkin_ws/src/openslam_gmapping/include/**",
+        "/home/oj/catkin_ws/src/common_tutorials/pluginlib_tutorials/include/**",
+        "/home/oj/catkin_ws/src/robot_localization/include/**",
+        "/home/oj/catkin_ws/src/navigation/rotate_recovery/include/**",
+        "/home/oj/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/oj/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/oj/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/oj/catkin_ws/src/unique_identifier/unique_id/include/**",
+        "/home/oj/catkin_ws/src/navigation/voxel_grid/include/**",
+        "/home/oj/catkin_ws/src/youbot_driver/include/**",
+        "/home/oj/catkin_ws/src/youbot_driver_ros_interface/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
