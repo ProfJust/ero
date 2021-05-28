@@ -4,9 +4,18 @@
 #
 # verrauschte Odometry erzeugen um IMU/EKF zu testen
 # ------------------------------------------------
-
-# from https://answers.ros.org/question/370806/adding-noise-to-odom-topic/
-# https://kapernikov.com/the-ros-robot_localization-package/
+# starten der Simulation mit IMU
+# $ roslaunch ero whs_summit_xl_4mapping_imu.launch
+# $ rosrun ero ero_noisy_odometrie_4_imu_test.py
+# RViz die beiden Odometry - Topics vergleichen
+# /robot/robotnik_base_control/odom - unverrauscht
+# /noisy_odom - verrauscht
+# /robot/odometry/filtered_odom  - vom EKF
+# -------------------------------------------------
+# Ändern in robot_localization_odom.launch - File im Pfad
+# /catkin_ws/src/summit_xl_common/summit_xl_localization/launch
+# <!-- arg name="odom_topic" default="robotnik_base_control/odom"/-->
+# <arg name="odom_topic" value="/noisy_odom"/>  <!-- changed by OJU for IMU Test -->
 
 
 import rospy
@@ -37,9 +46,9 @@ class odom_noise_class:
         self.add_noise()
 
     def add_noise(self):
-        random_float = random.uniform(-0.5, 0.5)
+        random_float = random.uniform(-0.01, 0.01)
         self.noisy_odom_msg.pose.pose.position.x += random_float
-        random_float = random.uniform(-0.2, 0.2)
+        random_float = random.uniform(-0.005, 0.005)
         self.noisy_odom_msg.pose.pose.orientation.z += random_float
         rospy.loginfo(" Adding %f", random_float)
 

@@ -169,7 +169,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: robot_map
+    Fixed Frame: robot_odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -192,7 +192,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 10.990002632141113
+      Angle: 10.965003967285156
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -202,10 +202,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 114.86013793945312
+      Scale: 101.07691955566406
       Target Frame: <Fixed Frame>
-      X: -1.8972398042678833
-      Y: 0.24148988723754883
+      X: -0.17607244849205017
+      Y: 0.12788468599319458
     Saved: ~
 Window Geometry:
   Displays:
