@@ -50,12 +50,12 @@
 
 	<arg name="gmapping_robot_a" default="true"/>
 	<arg name="move_base_robot_a" default="true"/>
-	<arg name="ekf_localization_robot_a" default="false"/>
+	<arg name="ekf_localization_robot_a" default="true"/>  <!-- OJU changed from false-->
 	<arg name="amcl_and_mapserver_a" default="true"/>
 	
 	<arg name="joy_dev" value="/dev/input/js0"/> <!-- was js_base-->
 	<arg name="launch_pad_a" default="false"/>
-	<arg name="pad_model" value="logitechf710"/> <!-- was "ps4"-->
+	<arg name="pad_model" value="ps4"/> <!-- can be "logitechf710" or "ps4"-->
 	
 	<arg name="gps_latitude_robot_a" default="39.5080331"/>
 	<arg name="gps_longitude_robot_a" default="-0.4619816"/>

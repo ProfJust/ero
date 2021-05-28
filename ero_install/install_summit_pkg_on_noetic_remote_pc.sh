@@ -62,4 +62,8 @@ cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_map/.  ~/catkin_ws/src/summit_
 cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world_model/.  ~/.gazebo/models/whs_world_model
 cp -a ~/catkin_ws/src/ero/ero_gz_worlds/whs_world/.  ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
 
+
+# cp 30m_Laserscanner_ UTM30LX  ~/catkin_ws/src/summit_xl_sim/summit_xl_gazebo/worlds
+
+
 echo -e "\033[31m to do:   $ cd ~/catkin_ws/  ...   catkin_make \033[0m"
