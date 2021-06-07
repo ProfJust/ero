@@ -46,8 +46,10 @@ class odom_noise_class:
         self.add_noise()
 
     def add_noise(self):
-        random_float = random.uniform(-0.02, 0.02)
+        random_float = random.uniform(-0.001, 0.001)
         self.noisy_odom_msg.pose.pose.position.x += random_float
+        random_float = random.uniform(-0.001, 0.001)
+        self.noisy_odom_msg.pose.pose.position.y += random_float
         random_float = random.uniform(-0.1, 0.1)
         self.noisy_odom_msg.pose.pose.orientation.z += random_float
         rospy.loginfo(" Adding %f", random_float)
