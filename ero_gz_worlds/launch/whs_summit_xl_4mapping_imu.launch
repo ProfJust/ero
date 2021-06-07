@@ -84,7 +84,7 @@
 		
 	</include>
 
- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ero)/ero_rviz/summit_whs_p5_mapping_SS21.rviz" />
+ <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ero)/ero_rviz/summit_whs_imu_test.rviz" />
 
  <!-- Tastensteuerung in eigener Shell starten -->
 	<node pkg="ero" type="start_teleop.sh" name="teleop_node" output="screen" />
