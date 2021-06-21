@@ -1,0 +1,20 @@
+image_width: 640
+image_height: 480
+camera_name: rgb_Astra_Orbbec
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [518.9111447576907, 0, 315.5808468103651, 0, 520.1758807489335, 241.1083256033744, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.02590621452288246, -0.1004293841786906, -0.0004294698203869803, -0.004045864649721762, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [516.1765747070312, 0, 312.8791238460653, 0, 0, 521.0899658203125, 240.9701178038958, 0, 0, 0, 1, 0]

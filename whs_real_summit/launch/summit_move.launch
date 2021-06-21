@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+<group ns="summit_xl">
+	<!-- Navigation move_base -->	
+	<include file="$(find summit_xl_navigation)/launch/move_base.launch">
+		<arg name="config_package" value="whs_summit"/>
+		<arg name="config_folder" value="config/move_base"/>
+		<arg name="id_robot" value="summit_xl" />
+		<arg name="local_planner" value="teb" />
+		<arg name="front_rgbd_to_scan_topic" value="scan" />
+		<arg name="front_scan_topic" value="front_laser/scan"/>
+	</include> 
+</group> 
+</launch>

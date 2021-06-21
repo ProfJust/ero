@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="slam" default="true"/>
+	<arg name="map" default="labor_20200930.yaml"/>
+	<!-- Summit_XL Bringup-->
+	<include file="$(find whs_summit)/launch/summit_bringup.launch"/>
+	<!-- Summit_XL Sensors-->
+	<include file="$(find whs_summit)/launch/summit_sensors.launch"/>
+	<group if="$(arg slam)">
+		<!-- Summit_XL SLAM-->
+		<include file="$(find whs_summit)/launch/summit_slam.launch"/>
+	</group>
+	<group unless="$(arg slam)">
+		<!-- Summit_XL amcl-->
+		<include file="$(find whs_summit)/launch/summit_amcl.launch">
+			<arg name="map_file" value="$(arg map)"/>
+		</include>
+	</group>
+    <!-- Summit_XL move_base-->
+	<include file="$(find whs_summit)/launch/summit_move.launch"/>
+</launch>
