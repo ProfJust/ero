@@ -6,7 +6,7 @@ import sys
 from PyQt5.QtCore import (QTimer)
 from PyQt5.QtWidgets import (QWidget, QPushButton, QApplication)
 from PyQt5.QtMultimedia import QSound
-# sudo apt-get install python-pyqt5.qtmultimedia
+# sudo apt-get install python3-pyqt5.qtmultimedia
 import random
 
 
@@ -36,7 +36,7 @@ class Ui(QWidget):
             self.toggleFlag = False
             # pick a sound file (.wav only) 
             # https://www.thesoundarchive.com/ringtones.asp
-            sound_file_str = "pacman_death.wav"
+            sound_file_str = "/home/oj/catkin_ws/src/ero/scripts/pacman_death.wav"
             QSound.play(sound_file_str)
             zf = random.randint(0, 3)  # Zufallszahl               
             if zf == 0:
