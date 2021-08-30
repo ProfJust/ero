@@ -17,7 +17,8 @@
     <rosparam file="$(find whs_summit)/config/robotnik_base_hw/$(arg prefix)robotnik_base_hw.yaml" command="load" />   
 
     <arg name="robot_gearbox" default="$(optenv ROBOT_GEARBOX 12.52)"/>
-    <arg name="has_encoder" default="$(optenv ROBOT_HAS_ENCODER false)"/> 
+	<!-- If this is false on a summit with encoder its moves only very very slow -->
+    <arg name="has_encoder" default="$(optenv ROBOT_HAS_ENCODER true)"/>	<!-- OJU changed to true--> 
 
     <node name="robotnik_base_hw" pkg="robotnik_base_hw" type="robotnik_base_hw_node" output="screen" launch-prefix="$(arg launch_prefix)">
     	<param name="gearbox_ratio" value="$(arg robot_gearbox)"/>

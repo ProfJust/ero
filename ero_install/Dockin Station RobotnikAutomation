@@ -1,0 +1,160 @@
+Dockin Station RobotnikAutomation
+
+benötigte Pakete
+git clone https://github.com/RobotnikAutomation/accurate_docking
+
+oder
+git clone -b move_base_compatibility https://github.com/RobotnikAutomation/accurate_docking
+
+git clonehttps://github.com/RobotnikAutomation/rcomponent
+
+git clone https://github.com/RobotnikAutomation/robotnik_navigation_msgs.git
+
+#######################################################################
+Python2 => Python3 (nur NOETIC)
+
+Zeile1 Shebank mit python3
+#!/usr/bin/env python3
+
+# OJU import exceptions
+
+
+NOETIC Problems
+summit_xl statt rb1
+ <arg name="config_laser_reflectors_filter" default="$(find summit_xl_perception)/config/laser/$(arg filter_config_file).yaml"/>
+ 
+ 
+ 
+ 
+ ERROR: cannot launch node of type [robotnik_locator/two_tag_laser_locator_node]: robotnik_locator
+
+ ERROR: cannot launch node of type [robotnik_locator/two_tags_locator_node]: robotnik_locator
+
+
+###################################################################
+Melodic funktioniert
+
+?? wie starte man den Action Server
+
+oj@FossaLabtop:~$ rosservice call /robot/accurate_docking/accurate_docking/start
+success: True
+message: "Starting"
+oj@FossaLabtop:~$ rosservice call /robot/accurate_docking/accurate_docking/start
+success: True
+message: "Starting"
+oj@FossaLabtop:~$ rostopic info /summit_xl/move_base_simple/goal
+Type: geometry_msgs/PoseStamped
+
+Publishers: 
+ * /rviz_1625144552818457848 (http://192.168.0.182:35275/)
+
+Subscribers: 
+ * /summit_xl/move_base (http://192.168.0.200:34753/)
+
+
+oj@FossaLabtop:~$ rostopic echo /robot/accurate_docking/pp_docker/goal 
+^Coj@FossaLabtop:~$ rostopic info /robot/accurate_docking/pp_docker/goal 
+Type: robotnik_navigation_msgs/DockActionGoal
+
+Publishers: 
+ * /robot/accurate_docking/accurate_docking (http://192.168.0.200:46417/)
+
+Subscribers: None
+
+
+oj@FossaLabtop:~$ rostopic info /robot/accurate_docking/move/status
+Type: actionlib_msgs/GoalStatusArray
+
+Publishers: None
+
+Subscribers: 
+ * /robot/accurate_docking/accurate_docking (http://192.168.0.200:46417/)
+
+
+oj@FossaLabtop:~$ rosmsgs info actionlib_msgs/GoalStatusArray
+
+Der Befehl 'rosmsgs' wurde nicht gefunden, meinten Sie:
+
+  Befehl 'rosmsg' aus dem deb python3-rosmsg (1.14.3+ds1-11ubuntu5)
+
+Versuche: sudo apt install <deb name>
+
+oj@FossaLabtop:~$ rosmsg info actionlib_msgs/GoalStatusArray
+std_msgs/Header header
+  uint32 seq
+  time stamp
+  string frame_id
+actionlib_msgs/GoalStatus[] status_list
+  uint8 PENDING=0
+  uint8 ACTIVE=1
+  uint8 PREEMPTED=2
+  uint8 SUCCEEDED=3
+  uint8 ABORTED=4
+  uint8 REJECTED=5
+  uint8 PREEMPTING=6
+  uint8 RECALLING=7
+  uint8 RECALLED=8
+  uint8 LOST=9
+  actionlib_msgs/GoalID goal_id
+    time stamp
+    string id
+  uint8 status
+  string text
+
+oj@FossaLabtop:~$ rosnode info /robot/accurate_docking/accurate_docking 
+--------------------------------------------------------------------------------
+Node [/robot/accurate_docking/accurate_docking]
+Publications: 
+ * /robot/accurate_docking/accurate_docking/state [robotnik_msgs/State]
+ * /robot/accurate_docking/accurate_docking/status [std_msgs/String]
+ * /robot/accurate_docking/move/cancel [actionlib_msgs/GoalID]
+ * /robot/accurate_docking/move/goal [robotnik_navigation_msgs/MoveActionGoal]
+ * /robot/accurate_docking/pp_docker/cancel [actionlib_msgs/GoalID]
+ * /robot/accurate_docking/pp_docker/goal [robotnik_navigation_msgs/DockActionGoal]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /robot/accurate_docking/move/feedback [unknown type]
+ * /robot/accurate_docking/move/result [unknown type]
+ * /robot/accurate_docking/move/status [unknown type]
+ * /robot/accurate_docking/pp_docker/feedback [unknown type]
+ * /robot/accurate_docking/pp_docker/result [unknown type]
+ * /robot/accurate_docking/pp_docker/status [unknown type]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /robot/accurate_docking/accurate_docking/get_loggers
+ * /robot/accurate_docking/accurate_docking/save_results
+ * /robot/accurate_docking/accurate_docking/set_logger_level
+ * /robot/accurate_docking/accurate_docking/set_pregoal_offset_1
+ * /robot/accurate_docking/accurate_docking/set_pregoal_offset_2
+ * /robot/accurate_docking/accurate_docking/start
+ * /robot/accurate_docking/accurate_docking/stop
+
+
+contacting node http://192.168.0.200:39943/ ...
+Pid: 32759
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (38793 - 192.168.0.200:39918) [9]
+    * transport: TCPROS
+ * topic: /tf
+    * to: /summit_xl/robot_state_publisher (http://192.168.0.200:45603/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /summit_xl/slam_gmapping (http://192.168.0.200:43559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /summit_xl/robotnik_base_hw (http://192.168.0.200:34253/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /summit_xl/robot_state_publisher (http://192.168.0.200:45603/)
+    * direction: inbound
+    * transport: TCPROS
+
+
